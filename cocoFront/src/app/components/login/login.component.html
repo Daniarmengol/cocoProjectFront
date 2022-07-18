@@ -21,18 +21,20 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center form_container">
-                    <form>
+
+                    <form novalidate [formGroup]="loginForm" (ngSubmit)="getDataForm(loginForm)">
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" name="" class="form-control input_user" value="" placeholder="usuario">
+                            <input type="text" formControlName="username" class="form-control input_user"
+                                placeholder="usuario">
                         </div>
                         <div class="input-group mb-2">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" name="" class="form-control input_pass" value=""
+                            <input type="password" formControlName="password" class="form-control input_pass"
                                 placeholder="contraseña">
                         </div>
                         <div class="form-group">
@@ -42,9 +44,10 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="button" name="button" class="btn login_btn">Accede</button>
+                            <input type="submit" value="Login" class="btn login_btn">
                         </div>
                     </form>
+
                 </div>
 
                 <div class="mt-4">
