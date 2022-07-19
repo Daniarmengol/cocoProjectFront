@@ -14,8 +14,8 @@ export class UsersService {
     private httpClient: HttpClient
   ) { }
 
-  registerUser(pFormValue: any): Promise<any> {
-    return lastValueFrom(this.httpClient.post<any>(this.baseUrl + 'registro', pFormValue))
+  registerUser(pFormValue: any): Promise<User | any> {
+    return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'registro', pFormValue))
   }
 
   login(pFormValue: any): Promise<User | any> {
