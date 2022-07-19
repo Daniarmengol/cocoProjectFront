@@ -1,4 +1,6 @@
+import { IfStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { NavigationEnd, Router, Event } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cocoFront';
+  currentRoute: string;
+  rutas: string[] = ['/login', '/registro']
+  transversalesOn: boolean = false;
+
+
+  /*DEPENDIENDO DE LA RUTA MUESTRE O NO EL COMPONENTE HEADER/FOOTER
+  https://www.angularjswiki.com/angular/how-to-detect-route-change-in-angular-with-examples/ */
+  constructor(private router: Router) {
+    this.currentRoute = "";
+
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+        /* console.log(this.currentRoute) */
+        if (this.rutas.includes(this.currentRoute)) {
+          this.transversalesOn = false
+          console.log('no hay header')
+        } else {
+          this.transversalesOn = true
+          console.log('hay header')
+        }
+      }
+    })
+  }
 }
