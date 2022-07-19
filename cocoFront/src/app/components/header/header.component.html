@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-2 border-secondary shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/home']">
+            <img class="img-resize" src="../../../assets/ilustracion-coco-login.webp">
+        </a>
+        <a class="navbar-brand fs-3" [routerLink]="['/home']">CoCo App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/home']">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown">
+                        Perfil
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Mi Perfil</a></li>
+                        <li><a class="dropdown-item">Mis Colecciones</a></li>
+                        <li><a class="dropdown-item">Nuevo Producto</a></li>
+                        <li class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item2">Logout</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/productos']">Productos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/colecciones']">Colecciones</a>
+                </li>
+
+
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-2 border-danger">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">
+            <img class="img-resize" src="../../../assets/ilustracion-coco-login.webp">
+        </a>
+        <div>
+            <h2 class="text-success text-decoration-underline">CoCo App</h2>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Productos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Colecciones</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown">
+                        Perfil
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Mis Colecciones</a></li>
+                        <li><a class="dropdown-item" href="#">Nuevo Producto</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+    </div>
+</nav> -->
