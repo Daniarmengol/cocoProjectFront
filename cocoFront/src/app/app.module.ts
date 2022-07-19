@@ -7,12 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
+import { C404Component } from './components/c404/c404.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegistroUsuarioComponent,
+    C404Component
   ],
   imports: [
     BrowserModule,

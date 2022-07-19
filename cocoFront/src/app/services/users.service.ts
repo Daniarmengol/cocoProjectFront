@@ -8,14 +8,14 @@ import { User } from '../interfaces/user.interface';
 })
 export class UsersService {
 
-  private baseUrl: string = 'http://localhost:3000/usuarios/'
+  private baseUrl: string = 'http://localhost:3000/api/usuarios/'
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  registerUser(pFormValue: any): Promise<any> {
-    return lastValueFrom(this.httpClient.post<any>(this.baseUrl + 'registro', pFormValue))
+  registerUser(pFormValue: any): Promise<User | any> {
+    return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'registro', pFormValue))
   }
 
   login(pFormValue: any): Promise<User | any> {
