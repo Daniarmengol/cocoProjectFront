@@ -1,0 +1,15 @@
+.list-links li:hover {
+    font-weight: 700;
+    transition: 100ms ease-in-out;
+}
+
+.list-links {
+    max-width: fit-content;
+}
+
+.img-resize {
+    height: auto;
+    width: 65px;
+    border-radius: 50%;
+}
+
