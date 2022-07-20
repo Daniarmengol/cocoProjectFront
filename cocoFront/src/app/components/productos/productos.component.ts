@@ -19,7 +19,7 @@ export class ProductosComponent implements OnInit {
   }
 
   onSubmit(formValue: any): void {
-
+    console.log(formValue)
   }
 
 
