@@ -1,0 +1,30 @@
+section{
+    background-color: var(--colorPrimario);
+}
+
+#filtros{
+    background-color:var(--colorTerciario);
+}
+
+#filterForm{
+    display: flex;
+    flex-direction: column;
+}
+
+hr{
+    color: var(--colorPrimario);
+}
+
+:is(.navbar-toggler, .btn-close):focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem var(--colorPrimario);
+}
+
+/* :is(ul, ol) li {} */
+
+:is(.navbar-toggler, .btn-close):hover  {
+    color: #000;
+    text-decoration: none;
+    opacity: .75;
+}
