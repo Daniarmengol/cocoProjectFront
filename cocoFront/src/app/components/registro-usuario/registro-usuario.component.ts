@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
+import * as dayjs from 'dayjs';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -18,40 +19,51 @@ export class RegistroUsuarioComponent implements OnInit {
   ) {
     this.registerForm = new FormGroup({
       nombre: new FormControl('', [
-        /* Validators.required,
-        Validators.minLength(3) */
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15),
+        Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/)
       ]),
 
       apellidos: new FormControl('', [
-        /*  Validators.required,
-         Validators.minLength(2) */
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/),
+        Validators.minLength(3),
+        Validators.maxLength(20),
       ]),
 
       email: new FormControl('', [
-       /*  Validators.required,
-        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/) */]),
+        Validators.required,
+        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
+
+
 
       direccion: new FormControl('', [
-        /*  Validators.required,
-         Validators.minLength(5) */
+        Validators.required,
+        Validators.minLength(10)
       ]),
 
       fecha_nacimiento: new FormControl('', [
-        /* this.ageValidator */
+        this.ageValidator
       ]),
 
       username: new FormControl('', [
-        /*     Validators.required,
-            Validators.minLength(5),
-            Validators.maxLength(15) */
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(15)
       ]),
 
       password: new FormControl('', [
-        /* Validators.required,
-        Validators.minLength(5), */
+        Validators.required,
+        Validators.minLength(5),
+
+      ]),
+
+      repeatpassword: new FormControl('', [
+        Validators.required
       ])
 
-    }, [])
+    }, [this.passwordValidator])
   }
 
   ngOnInit(): void {
@@ -62,7 +74,7 @@ export class RegistroUsuarioComponent implements OnInit {
     const repeatpassword = pform.get('repeatpassword')?.value;
 
     if (password !== repeatpassword) {
-      return { passwordValidator: true }
+      return { passwordvalidator: true }
     }
 
     return null
@@ -71,15 +83,13 @@ export class RegistroUsuarioComponent implements OnInit {
 
   ageValidator(pControlName: AbstractControl) {
 
-    const edad: number = parseInt(pControlName.value)
-
-    if (isNaN(edad)) {
-      return { agevalidator: 'La edad tiene que ser un numero' }
-    } else if (edad < 18 || edad > 65) {
-      return { agevalidator: 'La edad tiene que ser entre 18 y 65 años' }
+    let diferencia = (dayjs().diff(dayjs(pControlName.value), 'year'));
+    if (diferencia >= 18) {
+      return null
+    } else {
+      return { agevalidator: true }
     }
 
-    return null
   }
 
   async getDataForm() {
@@ -96,6 +106,10 @@ export class RegistroUsuarioComponent implements OnInit {
     } catch (error) {
       console.log(error)
     }
+
+  }
+
+  apiDataValidator() {
 
   }
 }
