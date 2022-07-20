@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 import { C404Component } from './components/c404/c404.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { C404Component } from './components/c404/c404.component';
     LoginComponent,
     HomeComponent,
     RegistroUsuarioComponent,
-    C404Component
+    C404Component,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
