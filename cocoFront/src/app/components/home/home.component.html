@@ -1,11 +1,11 @@
 <div id="hero" class="mb-5">
     <div class="container">
         <section class="hero row">
-            <div class="hero_left col-12 col-md-5">
+            <div class="hero_left col-12 col-lg-5">
                 <div class="hero_left_text">
-                    <h1>
+                    <h2>
                         Descubre, colecciona y vende extraordinarios productos
-                    </h1>
+                    </h2>
                     <h4>¡En Coco App podrás compartir tus colecciones con nuestra comunidad!</h4>
                 </div>
                 <div class="hero_left_btns">
@@ -17,35 +17,59 @@
                     </button>
                 </div>
             </div>
-
-            <div class="col-2"></div>
-
-            <div class="hero_right col-12">
-
+            <div class="col-lg-2"></div>
+            <div class="hero_right col-12 col-lg-5">
                 <div class="hero_right_card">
-                    <article>
-                        <div class="card">
-                            <a [routerLink]="['/login']">
-                                <img src="https://i.imgur.com/i2RTPH1.jpeg" class="card-img-top">
-                                <div class="p-2">
-                                    <div>
-                                        <!-- <img class="img-resize" src="" alt=""> -->
+                    <article *ngFor="let user of userShowcase">
+                        <div class="card shadow">
+                            <div role="button" [routerLink]="['/login']">
+                                <figure class="card_collection_img">
+                                    <img [src]="user.avatar" class="card-img-top">
+                                </figure>
+                                <div class="p-3 user_info">
+                                    <div class="user_info_left">
+                                        <div class="card_avatar img-resize">
+                                            <img [src]="user.avatar" alt="">
+                                        </div>
+                                        <div class="card_text_left">
+                                            <span><strong>123456789012345</strong></span><span>by
+                                                <strong>{{user.username}}</strong></span>
+                                        </div>
                                     </div>
-                                    <div class="texto-card">
-                                        <h4>Colección</h4>
-                                        <h4>by Usuario</h4>
+                                    <div class="user_info_right">
+                                        <div class="card_text_right">
+                                            <span><strong>Rating</strong></span><span>* * * * *</span>
+                                        </div>
                                     </div>
-
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </article>
                 </div>
-
             </div>
         </section>
+
+        <article class="row mt-5 banner">
+            <div class="col-lg-12 d-flex align-items-center justify-content-between rounded-3 shadow"
+                [routerLink]="['/login']">
+                <div class="banner_text pt-2">
+                    <ul>
+                        <li>Descubre</li>
+                        <li>colecciones</li>
+                        <li>de los '90</li>
+                        <li>en CoCo App</li>
+                    </ul>
+                </div>
+                <div class="banner_button pe-4">
+                    <button class="btn btn-primary" [routerLink]="['/login']">Descubre</button>
+                </div>
+            </div>
+        </article>
+
     </div>
 </div>
+
+
 
 <div>
     <div>

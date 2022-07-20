@@ -3,13 +3,27 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 800px;
+}
+
+figure {
+	margin: 0;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 16px;
 }
 
 .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
     margin: 0 20px;
 }
 
@@ -17,45 +31,177 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	min-width: 0;
+	min-width: 300px;
+    max-width: 500px;
+    margin: 0 auto;
 	word-wrap: break-word;
 	background-color: #fff;
 	background-clip: border-box;
 	border: 0;
-	border-radius: 13px;
+	border-radius: 10px;
+}
+
+.card a {
+    text-decoration: none;
 }
 
 .hero_left_text {
+    margin-top: 20px;
     text-align: center;
+}
+
+.hero_left_text h4 {
+    margin: 20px auto 30px auto;
 }
 
 .hero_left_btns {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 .hero_left_btns button {
-    padding: 12px 40px;
-    margin: 0 16px;
-    border-radius: 13px;
+    padding: 13px 25px;
+    margin: 0 9px;
+    border-radius: 10px;
+    font-weight: 700;
 }
 
 .hero_right_card {
-    margin: 50px 10px;
+    padding: 40px 0;
 }
 
-.hero_right_card article .card a img{
+.card-img, .card-img-top {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.hero_right_card article .card div .card_collection_img {
     width: 100%;
-    height: 225px;
+    height: 170px;
     border: none;
-    border-top-left-radius: 13px ;
-    border-top-right-radius: 13px;
 }
 
 .hero_right_card .card img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
-.img-resize {
+.hero_right_card .user_info {
+    display: flex;
+}
+
+.user_info {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.user_info_left {
+    display: flex;
+    flex-direction: row;
+}
+
+.user_info_left .card_text_left {
+    flex-direction: column;
+    text-align: start;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.user_info_right .card_text_right {
+    display: flex;
+    text-align: end;
+    flex-direction: column;
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+.user_info_left .card_text_left span {
+    display: block;
+}
+
+.hero_right_card .img-resize {
+    width: 33px;
+    height: 33px;
+}
+
+.hero_right_card .card_avatar img {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
+}
+
+.banner {
+    cursor: pointer;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.banner>div {
+    background-image: url('../../../assets/ilustracion-coco-login.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.banner_text ul {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.banner_button button {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@media(min-width: 460px) {
+
+    #hero {
+        height: 800px;
+    }
+
+    .hero_right_card article .card div .card_collection_img {
+        height: 220px;
+    }
+}
+
+@media(min-width: 992px) {
+
+    .hero_right_card article .card div .card_collection_img {
+        height: 260px;
+    }
+
+    .hero_left_text {
+        margin-top: 20px;
+        text-align: start;
+    }
+
+    .hero_left_text h2 {
+        font-size: 30px;
+    }
+
+    .hero_left_text h4 {
+        font-size: 21px;
+    }
+
+    .hero_left_btns {
+        align-items: flex-start;
+        justify-content: start;
+        margin-top: 50px;
+    }
+
+    .hero_left_btns button {
+        padding: 15px 45px;
+    }
+
+    .banner_text ul {
+        font-size: 16px;
+    }
+
+    .banner_button button {
+        font-size: 16px;
+    }
+
 }

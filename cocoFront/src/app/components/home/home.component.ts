@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/interfaces/user.interface';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  trustedUsers: User[] = []
+  userShowcase: User[] = [];
 
-  ngOnInit(): void {
+  constructor(
+    private usersService: UsersService
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+    this.trustedUsers = await this.usersService.getByTrust('1');
+    console.log(this.trustedUsers);
+    const rngTrusted: number = Math.floor(Math.random() * this.trustedUsers.length)
+    console.log(rngTrusted);
+    const user = this.trustedUsers[rngTrusted]
+    this.userShowcase.push(user)
+    console.log(this.userShowcase);
+
+
   }
 
 }

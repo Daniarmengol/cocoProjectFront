@@ -7,4 +7,5 @@ export interface User {
     nombre: string;
     apellidos: string;
     fecha_nacimiento: Date;
+    avatar: string;
 }
