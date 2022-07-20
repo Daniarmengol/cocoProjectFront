@@ -60,7 +60,8 @@ export class RegistroUsuarioComponent implements OnInit {
       ]),
 
       repeatpassword: new FormControl('', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(5)
       ])
 
     }, [this.passwordValidator])
