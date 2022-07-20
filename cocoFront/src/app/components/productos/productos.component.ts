@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/interfaces/producto.interface';
+import { User } from 'src/app/interfaces/user.interface';
 import { ProductosService } from 'src/app/services/productos.service';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
 
 
 @Component({
@@ -11,16 +11,29 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
+  productos: Producto[] = [];
+  usuarios: User[] = [];
+  cardUser: User[] = [];
+  trustedOn: boolean = false;
 
+  constructor(
+    private productosService: ProductosService,
+    private usersService: UsersService
+  ) {
 
-  constructor() { }
+  }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<Producto[] | void> {
+    this.productos = await this.productosService.getAll()
+    this.usuarios = await this.usersService.getAll()
+
   }
 
   onSubmit(formValue: any): void {
     console.log(formValue)
   }
+
+
 
 
 }

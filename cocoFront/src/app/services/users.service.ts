@@ -18,6 +18,14 @@ export class UsersService {
     private httpClient: HttpClient
   ) { }
 
+  getAll(): Promise<User[]> {
+    return lastValueFrom(this.httpClient.get<User[] | any>(this.baseUrl, this.httpOptions))
+  }
+
+  getById(id: number): Promise<User | void> {
+    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + id, this.httpOptions))
+  }
+
   getByTrust(trust: string): Promise<User[]> {
     return lastValueFrom(this.httpClient.get<User[]>(this.baseUrl + 'trust/' + trust, this.httpOptions));
   };

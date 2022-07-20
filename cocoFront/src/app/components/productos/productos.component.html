@@ -1,72 +1,94 @@
-<section>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="botonera d-flex">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span><i class="fa-solid fa-filter"></i></span>
-                </button>
-                <div class="navbar-brand ps-3">Busqueda avanzada</div>
+<nav id="productos_filter" class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="botonera d-flex">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span><i class="fa-solid fa-filter"></i></span>
+            </button>
+            <div class="navbar-brand ps-3">Busqueda avanzada</div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Busqueda avanzada</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
             </div>
-
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Busqueda avanzada</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
+            <div class="offcanvas-body">
 
 
 
-                    <form #filtroProductos="ngForm" class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <hr>
+                <form #filtroProductos="ngForm" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <hr>
 
-                        <label class="form-label" for="nombre">Nombre</label>
-                        <input class="form-control" type="text" ngModel name="nombre" placeholder="Nombre del producto"
-                            required #nombre="ngModel">
-                        <hr>
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input class="form-control" type="text" ngModel name="nombre" placeholder="Nombre del producto"
+                        required #nombre="ngModel">
+                    <hr>
 
-                        <label class="form-label" for="">Marca</label>
-                        <input class="form-control" name="marca" type="text" ngModel placeholder="Marca del producto"
-                            required #marca="ngModel">
-                        <hr>
+                    <label class="form-label" for="">Marca</label>
+                    <input class="form-control" name="marca" type="text" ngModel placeholder="Marca del producto"
+                        required #marca="ngModel">
+                    <hr>
 
-                        <div ngModelGroup="precio">
-                            <label class="form-label" for="precio">Precio</label>
-                            <input class="form-control" type="number" id="precio" name="precioMin" min="0" ngModel
-                                placeholder="0" max="99999" required #precioMin="ngModel">
-                            <input class="form-control mt-2" type="number" id="precio" name="precioMax" min="0" ngModel
-                                max="99999" placeholder="99999" required #precioMax="ngModel">
-                        </div>
-                        <hr>
+                    <div ngModelGroup="precio">
+                        <label class="form-label" for="precio">Precio</label>
+                        <input class="form-control" type="number" id="precio" name="precioMin" min="0" ngModel
+                            placeholder="0" max="99999" required #precioMin="ngModel">
+                        <input class="form-control mt-2" type="number" id="precio" name="precioMax" min="0" ngModel
+                            max="99999" placeholder="99999" required #precioMax="ngModel">
+                    </div>
+                    <hr>
 
-                        <label class="form-label" for="">Categorias</label>
-                        <select name="categoria" ngModel class="form-select" required #categoria="ngModel">
-                            <option value="">Selecciona una categoria</option>
-                        </select>
-                        <hr>
+                    <label class="form-label" for="">Categorias</label>
+                    <select name="categoria" ngModel class="form-select" required #categoria="ngModel">
+                        <option value="">Selecciona una categoria</option>
+                    </select>
+                    <hr>
 
-                        <label class="form-label" for="estado">Estado</label>
-                        <select name="estado" ngModel class="form-select" required #estado="ngModel">
-                            <option value="">Estado del producto</option>
-                        </select>
-                        <hr>
+                    <label class="form-label" for="estado">Estado</label>
+                    <select name="estado" ngModel class="form-select" required #estado="ngModel">
+                        <option value="">Estado del producto</option>
+                        <option value="nuevo">Nuevo</option>
+                        <option value="usado">Usado</option>
+                        <option value="desperfectos">Desperfectos</option>
+                    </select>
+                    <hr>
 
-                        <input type="submit" (click)="onSubmit(filtroProductos.value)" class="btn btn-secondary"
-                            value="Buscar">
+                    <input type="submit" (click)="onSubmit(filtroProductos.value)" class="btn btn-secondary"
+                        value="Buscar">
 
-                        <pre>{{filtroProductos.value | json}}</pre>
-                    </form>
+                    <pre>{{filtroProductos.value | json}}</pre>
+                </form>
 
 
 
-                </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+<section id="productos_view">
     <div class="container">
         <h2 class="text-center">Productos</h2>
+        <div id="productos" class="row g-4">
+            <article *ngFor="let producto of productos" class=" col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="https://i.imgur.com/b90NgSA.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{producto.nombre}}</h5>
+                        <div id="usuario_info" *ngIf="let usuario of usuarios" class="p-1">
+                            <p class="mb-2"></p>
+                            <p>rating:*****</p>
+                            <div *ngIf="trustedOn" id="trusted_icon"><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="mt-2 mb-2">Precio: {{producto.precio}}€</p>
+                        <p>Estado: {{producto.estado}}</p>
+                        <a href="#" class="btn btn-success mt-3">Ir al producto</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
     </div>
 </section>
