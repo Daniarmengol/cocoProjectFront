@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 800px;
+    height: 850px;
 }
 
 figure {
@@ -156,18 +156,11 @@ h4 {
     font-weight: 700;
 }
 
-@media(min-width: 460px) {
+@media(min-width: 992px) {
 
     #hero {
         height: 800px;
     }
-
-    .hero_right_card article .card div .card_collection_img {
-        height: 220px;
-    }
-}
-
-@media(min-width: 992px) {
 
     .hero_right_card article .card div .card_collection_img {
         height: 260px;
