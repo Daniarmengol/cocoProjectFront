@@ -25,10 +25,8 @@ export class AppComponent {
         /* console.log(this.currentRoute) */
         if (this.rutas.includes(this.currentRoute)) {
           this.transversalesOn = false
-          console.log('no hay header')
         } else {
           this.transversalesOn = true
-          console.log('hay header')
         }
       }
     })

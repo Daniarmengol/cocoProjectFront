@@ -4,6 +4,7 @@ import { C404Component } from './components/c404/c404.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
+import { ProductosComponent } from './components/productos/productos.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -11,7 +12,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [LoginGuard] },
   { path: 'registro', component: RegistroUsuarioComponent },
+  { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: '**', component: C404Component }
+
 
 
 ];
