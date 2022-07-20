@@ -13,15 +13,16 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
 import { C404Component } from './components/c404/c404.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    HeaderComponent,
     FooterComponent,
     RegistroUsuarioComponent,
-    C404Component
+    C404Component,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
