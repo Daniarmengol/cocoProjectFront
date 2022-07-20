@@ -67,6 +67,10 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.registerForm.controls["username"].valueChanges.subscribe((value) => {
+      (value);
+    })
+
   }
 
   passwordValidator(pform: AbstractControl) {
