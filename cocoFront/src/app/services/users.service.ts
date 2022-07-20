@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 
@@ -9,10 +9,18 @@ import { User } from '../interfaces/user.interface';
 export class UsersService {
 
   private baseUrl: string = 'http://localhost:3000/api/usuarios/'
-
+  private httpOptions = {
+    headers: new HttpHeaders({
+      authorization: localStorage.getItem('user-token')!
+    })
+  };
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  getByTrust(trust: string): Promise<User[]> {
+    return lastValueFrom(this.httpClient.get<User[]>(this.baseUrl + 'trust/' + trust, this.httpOptions));
+  };
 
   registerUser(pFormValue: any): Promise<User | any> {
     return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'registro', pFormValue))
