@@ -65,3 +65,14 @@ table {
     --colorCuaternario: #F7BFB4;
     --colorQuinario: #88af54;
 }
+
+body {
+    background-color: var(--colorPrimario) !important;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
