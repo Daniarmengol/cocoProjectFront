@@ -114,7 +114,8 @@ export class RegistroUsuarioComponent implements OnInit {
 
   }
 
-  apiDataValidator() {
-
+  userDuplicationValidator() {
+    // tengo que recojer el valor del input email y con ese value hacer una peticion al servicio 
+    //y la peticion debe de llamar a la ruta creada (emailduplicado) esto me devuelve true, si me devuelve true es que ya existe el email y tengo que lanzar el error, si me devuelve false no está duplicado y es correcto
   }
 }
