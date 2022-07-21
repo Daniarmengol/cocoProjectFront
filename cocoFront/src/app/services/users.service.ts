@@ -9,17 +9,36 @@ import { User } from '../interfaces/user.interface';
 export class UsersService {
 
   private baseUrl: string = 'http://localhost:3000/api/usuarios/'
-  private httpOptions = {
-    headers: new HttpHeaders({
-      authorization: localStorage.getItem('user-token')!
-    })
-  };
+
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  getByTrust(trust: string): Promise<User[]> {
-    return lastValueFrom(this.httpClient.get<User[]>(this.baseUrl + 'trust/' + trust, this.httpOptions));
+  getAll(): Promise<User[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User[] | any>(this.baseUrl, httpOptions))
+  }
+
+  getById(id: number): Promise<User | void> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + id, httpOptions))
+  }
+
+  getByTrust(trust: number): Promise<User[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User[]>(this.baseUrl + 'trust/' + trust, httpOptions));
   };
 
   registerUser(pFormValue: any): Promise<User | any> {
@@ -28,6 +47,15 @@ export class UsersService {
 
   login(pFormValue: any): Promise<User | any> {
     return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'login', pFormValue))
+  }
+
+  getRandomTrusted(): Promise<User | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + '/rand/trusted', httpOptions))
   }
 
 

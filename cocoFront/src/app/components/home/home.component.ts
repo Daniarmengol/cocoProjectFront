@@ -9,7 +9,6 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HomeComponent implements OnInit {
 
-  trustedUsers: User[] = []
   userShowcase: User[] = [];
 
   constructor(
@@ -17,15 +16,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.trustedUsers = await this.usersService.getByTrust('1');
-    console.log(this.trustedUsers);
-    const rngTrusted: number = Math.floor(Math.random() * this.trustedUsers.length)
-    console.log(rngTrusted);
-    const user = this.trustedUsers[rngTrusted]
-    this.userShowcase.push(user)
-    console.log(this.userShowcase);
-
-
+    this.userShowcase = await this.usersService.getRandomTrusted()
   }
-
 }

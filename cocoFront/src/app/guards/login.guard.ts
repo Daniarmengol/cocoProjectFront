@@ -12,11 +12,11 @@ export class LoginGuard implements CanActivate {
   canActivate(): boolean {
     console.log('estoy pasando por el guard')
     let token: string | null = localStorage.getItem('user-token')
-    if (token === null) {
-      this.router.navigate(['/login'])
-      return false
+    if (token) {
+      return true
     }
-    return true;
+    this.router.navigate(['/login'])
+    return false;
   }
 
 }

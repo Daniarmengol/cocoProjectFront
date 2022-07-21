@@ -1,0 +1,9 @@
+.btn-outline-success {
+    color: var(--colorPrimario);
+    border-color: var(--colorPrimario);
+}
+
+.btn-outline-success:hover {
+    color: white;
+    background-color: var(--colorPrimario);
+}

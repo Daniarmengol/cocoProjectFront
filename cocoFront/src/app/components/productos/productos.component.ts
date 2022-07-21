@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/interfaces/producto.interface';
+import { User } from 'src/app/interfaces/user.interface';
 import { ProductosService } from 'src/app/services/productos.service';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -11,16 +10,25 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
+  productos: any[] = [];
+  usuarios: User[] = [];
 
 
-  constructor() { }
+  constructor(
+    private productosService: ProductosService,
+  ) {
 
-  ngOnInit(): void {
+  }
+
+  async ngOnInit(): Promise<Producto[] | void> {
+    this.productos = await this.productosService.getUserByProducto();
   }
 
   onSubmit(formValue: any): void {
     console.log(formValue)
   }
+
+
 
 
 }
