@@ -1,0 +1,63 @@
+<div id="one">
+    <div class="container">
+        <nav style="--bs-breadcrumb-divider:'>'">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+                <li class="breadcrumb-item active">Perfil de {{user?.username}}</li>
+            </ol>
+        </nav>
+
+        <div class="user_info">
+            <section class="info_box bg-light">
+                <div class="perfil_img d-flex flex-column pt-3">
+                    <figure>
+                        <img [src]="user?.avatar" alt="user?.username">
+                    </figure>
+                    <div class="button_container text-center py-3">
+                        <button class="btn btn-success">
+                            ESTO ME LLEVARÍA A /:userId/colecciones/:colecId
+                        </button>
+                    </div>
+                </div>
+                <div class="perfil_tabs">
+
+                    <nav>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'informacion'}"
+                                (click)="cargarArticle('informacion')">
+                                Información
+                            </li>
+                            <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'colecciones'}"
+                                (click)="cargarArticle('colecciones')">
+                                Colecciones
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="content">
+                        <article *ngIf="profileTab === 'informacion'">
+                            <div class="info_eval">
+                                <div class="info_top d-flex justify-content-center">
+                                    <div class="circle">
+                                        <div>
+                                            <img [src]="user?.avatar" alt="user?.username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Intercambios: 24</p>
+                                <p>Amgios: 3</p>
+                                <p>Colecciones: 1</p>
+                            </div>
+                        </article>
+                        <article *ngIf=" profileTab==='colecciones'">
+                            ESTO ES COLECCIONES
+                            <br>
+                            ESTO ME CARGARÍA DIVS CON COLECCIONES DEL USUARIO
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
