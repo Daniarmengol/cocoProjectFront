@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Producto } from '../interfaces/producto.interface';
-import { lastValueFrom } from 'rxjs';
+import { last, lastValueFrom } from 'rxjs';
 
 
 @Injectable({
@@ -20,6 +20,14 @@ export class ProductosService {
 
   getAll(): Promise<Producto[] | any> {
     return lastValueFrom(this.httpClient.get<Producto[]>(this.baseUrl, this.httpOptions))
+  }
+
+  getUserByProducto(): Promise<Producto[] | any> {
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/productos_venta', this.httpOptions))
+  }
+
+  busquedaAvanzada(object: object): Promise<any> {
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl))
   }
 
 }
