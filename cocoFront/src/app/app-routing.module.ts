@@ -7,6 +7,7 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
 import { ProductosComponent } from './components/productos/productos.component';
 import { LoginGuard } from './guards/login.guard';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
+import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroUsuarioComponent },
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: 'colecciones', component: ColeccionesComponent },
-  { path: 'colecciones/:idusuario/idcolecciones', component: ColeccionesComponent },
+  { path: 'colecciones/:idcoleccion', component: ColeccionViewComponent },
   { path: '**', component: C404Component }
 
 ];
