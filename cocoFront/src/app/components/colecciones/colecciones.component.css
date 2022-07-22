@@ -11,7 +11,6 @@
 .container {
     display: block;
 
-
 }
 
 .pos-rel {
@@ -19,7 +18,7 @@
     color: var(--colorSecundario);
     padding: 20px;
     background-color: var(--colorTerciario);
-    border: 2px solid var(--colorSecundario);
+    border: 1px solid var(--colorSecundario);
     border-radius: 10px;
     box-shadow: 4px 2px 1px inset rgba(170, 100, 100, 0.781);
     text-align: center;

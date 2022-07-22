@@ -15,9 +15,8 @@ const routes: Routes = [
   { path: 'registro', component: RegistroUsuarioComponent },
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: 'colecciones', component: ColeccionesComponent },
+  { path: 'colecciones/:idusuario/idcolecciones', component: ColeccionesComponent },
   { path: '**', component: C404Component }
-
-
 
 ];
 
