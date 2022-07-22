@@ -43,9 +43,6 @@ p {
     padding: 5px;
 }
 
-.info_top {
-    position: relative;
-}
 
 .info_top .circle {
     height: 120px;
@@ -55,8 +52,8 @@ p {
 }
 
 .circle>div {
+    position: relative;
     border-radius: 50%;
-    overflow: hidden;
     height: 94px;
     width: 94px;
     margin-top: 3px;
@@ -72,8 +69,8 @@ p {
 
 .trusted_star {
     position: absolute;
-    right: 175px;
-    top: 0;
+    right: -25px;
+    top: -25px;
     font-size: 34px;
     color: goldenrod;
 }

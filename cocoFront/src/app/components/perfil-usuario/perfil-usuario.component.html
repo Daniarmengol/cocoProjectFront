@@ -41,11 +41,11 @@
                         <article *ngIf="profileTab === 'informacion'">
                             <div class="info_eval">
                                 <div class="info_top d-flex justify-content-center">
-                                    <div *ngIf="user?.trusted === 1" class="trusted_star">
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
+
                                     <div class="circle mt-4">
                                         <div>
+                                            <i *ngIf="user?.trusted === 1" class="fa-solid fa-star trusted_star"></i>
+
                                             <img [src]="user?.avatar" alt="user?.username">
                                         </div>
                                     </div>
@@ -136,19 +136,12 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
-
-
                         </article>
-
                     </div>
-
                 </div>
             </section>
         </div>
-
     </div>
 </div>

@@ -16,7 +16,9 @@ export class PerfilUsuarioComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute
+  ) { }
+
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async (params: any) => {
