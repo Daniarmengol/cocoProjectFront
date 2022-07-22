@@ -28,8 +28,4 @@ export class ProductosComponent implements OnInit {
   async searchMercado(formValue: any): Promise<void> {
     return this.productosService.busquedaAvanzada(formValue);
   }
-
-
-
-
 }

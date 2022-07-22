@@ -7,23 +7,17 @@ h2{
 }
 
 #img_prod{
-    margin: 0 auto;
-    width: 600px;
-    height: 600px;
-    background-color: gainsboro;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* margin: 0 auto; */
+    /* min-width: 600px;  */
+    min-height: 600px;
     position: relative;
     border-radius: 5px;
+    /* cursor: zoom-in; lupita en el cursor*/
 }
 
-#img_precio{
-    font-weight: bold;
-    position: absolute;
-    padding: 10px;
-    border-radius: 5px;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(171, 199, 152,0.6)
-}
 
 #img_text{
     margin: 0 auto;
@@ -31,27 +25,26 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 200px;
     height: 50px;
     font-weight: bold;
-    background-color: rgba(171, 199, 152,0.6);
+    background-color: rgba(rgba(0, 0, 0, 0.7), green, blue, alpha) /* rgba(171, 199, 152,0.8) */;
+    color: var(--colorPrimario);
 }
 
 #user_avatar{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: blue;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
-}
-
-#text_prod{
-    margin: 20px;
-    /* border: 1px solid black */
 }
 
 #informacion_producto{
     margin: 10px;
+    position: relative;
 }
 
 #user_info{
@@ -74,5 +67,8 @@ ul{
     columns: 2;
 }
 
+.carrito{
+    
+} 
 
 
