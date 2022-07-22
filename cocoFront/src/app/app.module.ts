@@ -14,6 +14,7 @@ import { C404Component } from './components/c404/c404.component';
 
 
 import { ProductosComponent } from './components/productos/productos.component';
+import { ProductoViewComponent } from './components/producto-view/producto-view.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductosComponent } from './components/productos/productos.component';
     RegistroUsuarioComponent,
     C404Component,
     HeaderComponent,
-    ProductosComponent
+    ProductosComponent,
+    ProductoViewComponent
   ],
   imports: [
     BrowserModule,
