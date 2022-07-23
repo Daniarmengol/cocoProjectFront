@@ -96,8 +96,9 @@
                                 <div class="my-2">
                                     <strong>Ubicación:</strong>
                                     <span><i class="fa fa-map-marker me-2"></i>Algeciras, España</span>
-                                    <!-- <input ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
-                                        (onAddressChange)="handleAddressChange($event)" /> -->
+                                    <input ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
+                                        (onAddressChange)="handleAddressChange($event)" class="d-none"
+                                        [value]="user?.direccion">
 
                                     <div class="mapita">
                                         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">

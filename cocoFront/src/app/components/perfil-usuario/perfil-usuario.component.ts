@@ -46,7 +46,7 @@ export class PerfilUsuarioComponent implements OnInit {
     //   this.lng = pos.coords.longitude;
     // })
 
-    this.setCurrentLocation();
+    // this.setCurrentLocation();
   };
 
   cargarArticle(article: string): void {
@@ -54,23 +54,24 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   public handleAddressChange(address: Address) {
-    // console.log(address);
     // console.log(address.geometry.location.lat());
     // console.log(address.geometry.location.lng());
+    // address = this.user?.direccion
+    console.log(address);
 
     this.lat = address.geometry.location.lat()
     this.lng = address.geometry.location.lng()
     this.zoom = 15;
   }
 
-  public setCurrentLocation() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.lat = position.coords.latitude
-        this.lng = position.coords.longitude
-        this.zoom = 15;
-      })
-    }
-  }
+  // public setCurrentLocation() {
+  //   if ('geolocation' in navigator) {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       this.lat = position.coords.latitude
+  //       this.lng = position.coords.longitude
+  //       this.zoom = 15;
+  //     })
+  //   }
+  // }
 
 }
