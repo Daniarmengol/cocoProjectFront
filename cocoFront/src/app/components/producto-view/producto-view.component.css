@@ -10,8 +10,6 @@ h2{
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center center;
-    /* margin: 0 auto; */
-    /* min-width: 600px;  */
     min-height: 600px;
     position: relative;
     border-radius: 5px;
@@ -20,16 +18,24 @@ h2{
 
 
 #img_text{
-    margin: 0 auto;
+    margin:0 auto;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 100%;
     height: 50px;
     font-weight: bold;
-    background-color: rgba(rgba(0, 0, 0, 0.7), green, blue, alpha) /* rgba(171, 199, 152,0.8) */;
+    background-color:rgba(0, 0, 0, 0.7) /* rgba(171, 199, 152,0.8) */;
     color: var(--colorPrimario);
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: var(--colorPrimario);
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
 #user_avatar{
@@ -67,8 +73,5 @@ ul{
     columns: 2;
 }
 
-.carrito{
-    
-} 
 
 
