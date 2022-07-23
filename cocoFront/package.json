@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.1.0",
     "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
@@ -20,6 +21,7 @@
     "@angular/router": "^14.0.0",
     "bootstrap": "^5.1.3",
     "dayjs": "^1.11.4",
+    "ngx-google-places-autocomplete": "^2.0.5",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

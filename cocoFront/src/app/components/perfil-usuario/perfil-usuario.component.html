@@ -96,6 +96,13 @@
                                 <div class="my-2">
                                     <strong>Ubicación:</strong>
                                     <span><i class="fa fa-map-marker me-2"></i>Algeciras, España</span>
+                                    <!-- <input ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
+                                        (onAddressChange)="handleAddressChange($event)" /> -->
+
+                                    <div class="mapita">
+                                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                                        </agm-map>
+                                    </div>
                                 </div>
 
                             </div>
@@ -105,6 +112,7 @@
                             ESTO ES COLECCIONES
                             <br>
                             ESTO ME CARGARÍA DIVS CON COLECCIONES DEL USUARIO
+                            <br>
 
                         </article>
                     </div>

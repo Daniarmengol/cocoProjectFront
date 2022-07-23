@@ -115,3 +115,14 @@ article {
     display: flex;
     flex-direction: column;
 }
+
+.mapita {
+    margin: 20px auto;
+    height: 480px;
+    width: 480px;
+}
+
+agm-map {
+    height: 100%;
+    width: 100%;
+}

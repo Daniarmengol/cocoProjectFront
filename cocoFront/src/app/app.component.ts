@@ -1,4 +1,4 @@
-import { IfStmt } from '@angular/compiler';
+// import { IfStmt } from '@angular/compiler'; No lo estábamos usando, voy a comentarlo pero borramos a futuro si no da errores.
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, Event } from '@angular/router';
 

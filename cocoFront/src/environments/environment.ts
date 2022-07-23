@@ -5,7 +5,8 @@
 export const environment = {
     production: false,
     googleMaps: {
-        apiKey: 'AIzaSyBfVmqYUPVGyRLk02DZv8g5kFbYhueYUpE'
+        apiKey: 'AIzaSyAD6tCeFnAWK6ZDGNE9YrGZtE09m7N30m0',
+        libraries: ['places']
     }
 };
 
