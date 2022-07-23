@@ -7,6 +7,7 @@ import { RegistroUsuarioComponent } from './components/registro-usuario/registro
 import { ProductosComponent } from './components/productos/productos.component';
 import { LoginGuard } from './guards/login.guard';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
+import { ProductoViewComponent } from './components/producto-view/producto-view.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -14,11 +15,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [LoginGuard] },
   { path: 'registro', component: RegistroUsuarioComponent },
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
-  { path: 'colecciones', component: ColeccionesComponent },
+  { path: 'colecciones', component: ColeccionesComponent, canActivate: [LoginGuard] },
+  { path: 'producto/:id', component: ProductoViewComponent, canActivate: [LoginGuard] },
   { path: '**', component: C404Component }
-
-
-
 ];
 
 @NgModule({

@@ -19,15 +19,41 @@ export class ProductosService {
   ) { }
 
   getAll(): Promise<Producto[] | any> {
-    return lastValueFrom(this.httpClient.get<Producto[]>(this.baseUrl, this.httpOptions))
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<Producto[]>(this.baseUrl, httpOptions))
   }
 
   getUserByProducto(): Promise<Producto[] | any> {
-    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/productos_venta', this.httpOptions))
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/productos_venta', httpOptions))
   }
 
-  busquedaAvanzada(object: object): Promise<any> {
-    return lastValueFrom(this.httpClient.get<any>(this.baseUrl))
+  getById(id: number): Promise<Producto | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/producto/' + id, httpOptions))
   }
+
+  busquedaAvanzada(formValue: any): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/busqueda/' + formValue.nombre + '/' + formValue.categoria + '/' + formValue.precio.precioMax + '/' + formValue.precio.precioMin + '/' + formValue.marca + '/' + formValue.estado, httpOptions))
+  }
+
+
 
 }

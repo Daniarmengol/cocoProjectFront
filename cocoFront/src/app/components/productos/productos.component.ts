@@ -10,8 +10,9 @@ import { ProductosService } from 'src/app/services/productos.service';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-  productos: any[] = [];
+  productosMercado: any[] = [];
   usuarios: User[] = [];
+
 
 
   constructor(
@@ -21,14 +22,10 @@ export class ProductosComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<Producto[] | void> {
-    this.productos = await this.productosService.getUserByProducto();
+    this.productosMercado = await this.productosService.getUserByProducto();
   }
 
-  onSubmit(formValue: any): void {
-    console.log(formValue)
+  async searchMercado(formValue: any): Promise<void> {
+    return this.productosService.busquedaAvanzada(formValue);
   }
-
-
-
-
 }

@@ -24,6 +24,24 @@ p{
     margin:0;  
 }
 
+.card-img-top{
+    height: 414px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: none;
+    border-radius: .25rem;
+}
+
 #usuario_info{
     font-size: 0.8rem;
     line-height: 1.1em;

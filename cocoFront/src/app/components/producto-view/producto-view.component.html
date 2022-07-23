@@ -1,0 +1,69 @@
+<section>
+    <div class="container">
+        <h2 class="p-4">Producto view</h2>
+        <article class="mb-4">
+            <div class="row g-5">
+                <div class="marco col-12 col-lg-6">
+                    <div id="img_prod" [ngStyle]="{'background-image': 'url(' + miProducto.imagen + ')'}">
+                    </div>
+                </div>
+
+                <div id="text_prod" class="col-12 col-lg-6">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a [ngClass]="{'active': seccionActual === 'informacion_producto'}"
+                                (click)="cargarInformacion('informacion_producto')" class="nav-link active">Informacion
+                                del
+                                producto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a [ngClass]="{'active': seccionActual === 'usuario_producto'}"
+                                (click)="cargarInformacion('usuario_producto')" class="nav-link">Informacion del
+                                usuario</a>
+                        </li>
+                    </ul>
+                    <div id="informacion_producto" *ngIf="seccionActual === 'informacion_producto'">
+                        <ul id="prod_info" class="mt-4">
+                            <li>Nombre: {{miProducto.nombre}}</li>
+                            <li>Precio: {{miProducto.precio}} €</li>
+                            <li>Categoria: {{miProducto.categoria}}</li>
+                            <li>Marca: {{miProducto.marca}}</li>
+                            <li>Estado: {{miProducto.estado}}</li>
+                            <li>Fecha subida: {{miProducto.fecha_subida|date}}</li>
+                        </ul>
+                        <p class="mt-4 mb-5">
+                            Descripcion del producto:
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. A quia recusandae facilis placeat
+                            aliquam
+                            eos
+                            expedita optio corrupti aut atque fugit quis iste laborum officia amet adipisci nam illum,
+                            sunt
+                            nostrum.
+                            Eveniet ut eaque tenetur commodi ab sequi sint sed in voluptatibus ratione reiciendis dicta
+                            facere
+                            illo
+                            quas, nobis dolorem!
+                        </p>
+                        <div class="botonera d-flex justify-content-around">
+                            <button [routerLink]="['/productos']" class="btn btn-success carrito">Volver</button>
+                            <button class="btn btn-success carrito">Añadir al carrito</button>
+
+                        </div>
+
+                    </div>
+                    <div id="user_prod" class="mt-5 mb-5 d-flex" *ngIf="seccionActual === 'usuario_producto'">
+                        <div id="user_avatar" [ngStyle]="{'background-image': 'url(' + miProducto.avatar + ')'}"
+                            class="m-4">
+                            <i *ngIf="miProducto.trusted!==0" id="trusted_icon" class="fa-solid fa-star"></i>
+                        </div>
+                        <ul id="user_info" class="d-flex justify-content-center align-content-center flex-column">
+                            <li>{{miProducto.username}}</li>
+                            <li>Rating: puntuacion</li>
+                            <li>Miembro desde: fecha</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
