@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import * as dayjs from 'dayjs';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -10,6 +11,12 @@ import * as dayjs from 'dayjs';
   styleUrls: ['./registro-usuario.component.css']
 })
 export class RegistroUsuarioComponent implements OnInit {
+
+  @ViewChild("placesRef") placesRef: GooglePlaceDirective | any;
+  options: any = {
+    types: [],
+    componentRestrictions: { country: 'ES' }
+  }
 
   registerForm: FormGroup;
 
@@ -24,46 +31,36 @@ export class RegistroUsuarioComponent implements OnInit {
         Validators.maxLength(15),
         Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/)
       ]),
-
       apellidos: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/),
         Validators.minLength(3),
-        Validators.maxLength(20),
+        Validators.maxLength(20)
       ]),
-
       email: new FormControl('', [
         Validators.required,
-        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
-
-
-
+        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+      ]),
       direccion: new FormControl('', [
         Validators.required,
         Validators.minLength(10)
       ]),
-
       fecha_nacimiento: new FormControl('', [
         this.ageValidator
       ]),
-
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(15)
       ]),
-
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(5),
-
+        Validators.minLength(5)
       ]),
-
       repeatpassword: new FormControl('', [
         Validators.required,
         Validators.minLength(5)
       ])
-
     }, [this.passwordValidator])
   }
 
@@ -102,7 +99,6 @@ export class RegistroUsuarioComponent implements OnInit {
       const response: any = await this.usersServices.registerUser(this.registerForm.value);
       console.log(response);
       const msg = (response.success) ? response.success : response.error;
-
       alert(msg);
       if (response.success) {
         this.router.navigate(['/login'])
@@ -114,7 +110,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
   }
 
-  apiDataValidator() {
+  // apiDataValidator() {
 
-  }
+  // }
 }

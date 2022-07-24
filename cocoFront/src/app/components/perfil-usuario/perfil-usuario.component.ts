@@ -28,6 +28,7 @@ export class PerfilUsuarioComponent implements OnInit {
   lng: number = -3;
   zoom: number = 10;
   // mapTypeId: string = 'hybrid';
+  userAddress: string = '';
 
 
   constructor(
@@ -41,6 +42,10 @@ export class PerfilUsuarioComponent implements OnInit {
       this.user = await this.usersService.getById(params.userId);
     });
 
+    this.userAddress = this.user?.direccion;
+    console.log(this.userAddress);
+
+
     // navigator.geolocation.getCurrentPosition(pos => {
     //   this.lat = pos.coords.latitude;
     //   this.lng = pos.coords.longitude;
@@ -53,16 +58,16 @@ export class PerfilUsuarioComponent implements OnInit {
     this.profileTab = article;
   }
 
-  public handleAddressChange(address: Address) {
-    // console.log(address.geometry.location.lat());
-    // console.log(address.geometry.location.lng());
-    // address = this.user?.direccion
-    console.log(address);
+  // public handleAddressChange(address: Address) {
+  //   // console.log(address.geometry.location.lat());
+  //   // console.log(address.geometry.location.lng());
+  //   // address = this.user?.direccion
+  //   console.log(address);
 
-    this.lat = address.geometry.location.lat()
-    this.lng = address.geometry.location.lng()
-    this.zoom = 15;
-  }
+  //   this.lat = address.geometry.location.lat()
+  //   this.lng = address.geometry.location.lng()
+  //   this.zoom = 15;
+  // }
 
   // public setCurrentLocation() {
   //   if ('geolocation' in navigator) {

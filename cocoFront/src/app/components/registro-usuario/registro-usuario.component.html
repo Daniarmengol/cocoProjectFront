@@ -83,8 +83,10 @@
                 </p>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" formControlName="direccion" class="form-control" id="address"
-                    placeholder="Dirección">
+
+                <input type="text" formControlName="direccion" class="form-control" id="address" placeholder="Dirección"
+                    ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places">
+
                 <label for="address">Dirección</label>
                 <p class="error"
                     *ngIf="registerForm.get('address')?.hasError('required') && registerForm.get('address')?.touched">
