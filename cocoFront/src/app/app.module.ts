@@ -16,6 +16,7 @@ import { C404Component } from './components/c404/c404.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
 import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
+import { CollectionCardComponent } from './components/collection-card/collection-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ColeccionViewComponent } from './components/coleccion-view/coleccion-vi
     HeaderComponent,
     ProductosComponent,
     ColeccionesComponent,
-    ColeccionViewComponent
+    ColeccionViewComponent,
+    CollectionCardComponent
   ],
   imports: [
     BrowserModule,
