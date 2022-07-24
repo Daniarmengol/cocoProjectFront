@@ -8,6 +8,7 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { LoginGuard } from './guards/login.guard';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
 import { ProductoViewComponent } from './components/producto-view/producto-view.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: 'colecciones', component: ColeccionesComponent, canActivate: [LoginGuard] },
   { path: 'producto/:id', component: ProductoViewComponent, canActivate: [LoginGuard] },
+  { path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard] },
   { path: '**', component: C404Component }
 ];
 

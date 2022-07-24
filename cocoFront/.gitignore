@@ -41,4 +41,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# .env con la ggl_apk (aunque está en el index, en los scripts)
 /src/environments/environment.ts
