@@ -142,4 +142,8 @@ agm-map {
 
 @media (min-width: 768px) { /* Aprovecho queries default de bootstrap*/
 
+    .mapita {
+        height: 400px;
+        width: 610px;
+    }
 }

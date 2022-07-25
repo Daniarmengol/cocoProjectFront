@@ -61,7 +61,7 @@
                                 <div class="rating_text">
                                     <ul class="d-flex justify-content-between">
                                         <li class="positive">
-                                            <span>21 Positivas</span>
+                                            <span>{{user?.rating}} Positivas</span>
                                         </li>
                                         <li class="neutral">
                                             <span>4 Neutrales</span>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="my-3 ps-3">
                                     <strong>Miembro desde:</strong>
-                                    <span>15 jul. 2022</span>
+                                    <span>{{user?.fecha_registro | date: 'dd MMMM YYYY'}} - </span>
                                 </div>
                                 <div class="my-3 ps-3">
                                     <strong>Última conexión:</strong>
