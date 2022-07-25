@@ -7,8 +7,9 @@
             </button>
             <div class="navbar-brand ps-3">Busqueda avanzada</div>
         </div>
+        <input type="submit" class="btn btn-secondary mb-2" value="Reiniciar Busqueda" (click)="reset()">
 
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Busqueda avanzada</h5>
@@ -53,6 +54,7 @@
                         <option value="desperfectos">Desperfectos</option>
                     </select>
                     <hr>
+                    <input type="reset" class="btn btn-secondary mb-2" value="Limpiar campos">
                     <input type="submit" class="btn btn-secondary" value="Buscar">
                 </form>
             </div>
@@ -71,12 +73,16 @@
                         <h5 class="card-title">{{producto.nombre}}</h5>
                         <div id="usuario_info" class="p-1">
                             <p class="mb-2">{{producto.username}}</p>
-                            <p>rating:*****</p>
+                            <p>Rating:*****</p>
                             <div id="trusted_icon" *ngIf="producto.trusted!==0"><i class="fa-solid fa-star"></i></div>
                         </div>
                         <p class="mt-2 mb-2">Precio: {{producto.precio}}€</p>
-                        <p>Estado: {{producto.estado}}</p>
-                        <button [routerLink]="['/producto', producto.id]" class="btn btn-success mt-3">Ir al
+                        <p>Estado: {{producto.estado | titlecase}}</p>
+                        <div class="">
+
+                        </div>
+                        <button [routerLink]="['/producto', producto.id]" id="prodBtn" class="btn btn-success mt-3">Ir
+                            al
                             producto</button>
                     </div>
                 </div>

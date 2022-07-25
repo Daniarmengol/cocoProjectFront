@@ -20,6 +20,8 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { environment } from 'src/environments/environment';
 
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
+import { MisProductosComponent } from './components/mis-productos/mis-productos.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     ProductosComponent,
     ColeccionesComponent,
     ProductoViewComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    NuevoProductoComponent,
+    MisProductosComponent
   ],
   imports: [
     BrowserModule,

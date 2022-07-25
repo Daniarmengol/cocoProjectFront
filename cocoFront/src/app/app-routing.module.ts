@@ -9,6 +9,8 @@ import { LoginGuard } from './guards/login.guard';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
 import { ProductoViewComponent } from './components/producto-view/producto-view.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { MisProductosComponent } from './components/mis-productos/mis-productos.component';
+import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -18,7 +20,15 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: 'colecciones', component: ColeccionesComponent, canActivate: [LoginGuard] },
   { path: 'producto/:id', component: ProductoViewComponent, canActivate: [LoginGuard] },
-  { path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard] },
+  {
+    path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard], children: [
+      {
+        path: 'perfil/:userId/mis-productos', component: MisProductosComponent, canActivate: [LoginGuard], children: [
+          { path: 'perfil/:userId/mis-productos/nuevo-productos', component: NuevoProductoComponent, canActivate: [LoginGuard] }
+        ]
+      }
+    ]
+  },
   { path: '**', component: C404Component }
 ];
 

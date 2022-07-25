@@ -15,6 +15,7 @@ export class ProductosComponent implements OnInit {
   usuarios: User[] = [];
   queryParamsStatus: string = "";
 
+
   constructor(
     private productosService: ProductosService
   ) { }
@@ -25,6 +26,10 @@ export class ProductosComponent implements OnInit {
 
   async search(busqueda: any) {
     this.productosMercado = await this.productosService.busquedaAvanzada(busqueda)
+  }
+
+  async reset() {
+    this.productosMercado = await this.productosService.getUserByProducto()
   }
 
 }
