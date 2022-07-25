@@ -21,32 +21,32 @@
                     <hr>
                     <label class="form-label" for="nombre">Nombre</label>
                     <input class="form-control" type="text" ngModel name="nombre" placeholder="Nombre del producto"
-                        required #nombre="ngModel">
+                        required>
                     <hr>
                     <label class="form-label" for="username">Usuario</label>
                     <input class="form-control" type="text" ngModel name="username" placeholder="Nombre del usuario"
-                        required #usuario="ngModel">
+                        required>
                     <hr>
                     <label class="form-label" for="">Marca</label>
                     <input class="form-control" name="marca" type="text" ngModel placeholder="Marca del producto"
-                        required #marca="ngModel">
+                        required>
                     <hr>
                     <div>
                         <label class="form-label" for="precio">Precio</label>
                         <input class="form-control" type="number" id="precio" name="precioMin" min="0" ngModel
-                            placeholder="0" max="99999" required #precioMin="ngModel">
+                            placeholder="0" max="99999" required>
                         <input class="form-control mt-2" type="number" id="precio" name="precioMax" min="0" ngModel
-                            max="99999" placeholder="99999" required #precioMax="ngModel">
+                            max="99999" placeholder="99999" required>
                     </div>
                     <hr>
                     <label class="form-label" for="">Categorias</label>
-                    <select name="categoria" ngModel class="form-select" required #categoria="ngModel">
+                    <select name="categoria" ngModel class="form-select" required>
                         <option value="">Selecciona una categoria</option>
                         <option value="figuras">figuras</option>
                     </select>
                     <hr>
                     <label class="form-label" for="estado">Estado</label>
-                    <select name="estado" ngModel class="form-select" required #estado="ngModel">
+                    <select name="estado" ngModel class="form-select" required>
                         <option value="">Estado del producto</option>
                         <option value="nuevo">Nuevo</option>
                         <option value="usado">Usado</option>
