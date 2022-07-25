@@ -26,24 +26,17 @@ export class RegistroUsuarioComponent implements OnInit {
   ) {
     this.registerForm = new FormGroup({
       nombre: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(15),
-        Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/)
+        Validators.required
       ]),
       apellidos: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^[a-zA-Z]+(([\'\,\.\- ][a-zA-Z ])?[a-zA-Z]*)*$/),
-        Validators.minLength(3),
-        Validators.maxLength(20)
+        Validators.required
       ]),
       email: new FormControl('', [
         Validators.required,
         Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
       ]),
       direccion: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10)
+        Validators.required
       ]),
       fecha_nacimiento: new FormControl('', [
         this.ageValidator
@@ -51,23 +44,20 @@ export class RegistroUsuarioComponent implements OnInit {
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(15)
+        this.userDupeValidator
       ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(5)
       ]),
-      repeatpassword: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5)
-      ])
-    }, [this.passwordValidator])
+      repeatpassword: new FormControl('', [])
+    }, [this.passwordValidator,])
   }
 
   ngOnInit(): void {
-    this.registerForm.controls["username"].valueChanges.subscribe((value) => {
-      (value);
-    })
+    // this.registerForm.controls["username"].valueChanges.subscribe((value) => {
+    //   (value);
+    // })
 
   }
 
@@ -99,10 +89,9 @@ export class RegistroUsuarioComponent implements OnInit {
       const response: any = await this.usersServices.registerUser(this.registerForm.value);
       console.log(response);
       const msg = (response.success) ? response.success : response.error;
-      alert(msg);
+      alert(msg); // sweet alerts
       if (response.success) {
         this.router.navigate(['/login'])
-
       }
     } catch (error) {
       console.log(error)
@@ -110,8 +99,26 @@ export class RegistroUsuarioComponent implements OnInit {
 
   }
 
-  userDuplicationValidator() {
-    // tengo que recojer el valor del input email y con ese value hacer una peticion al servicio 
-    //y la peticion debe de llamar a la ruta creada (emailduplicado) esto me devuelve true, si me devuelve true es que ya existe el email y tengo que lanzar el error, si me devuelve false no está duplicado y es correcto
+  async userDupeValidator(pControlName: AbstractControl) {
+    // tengo que recoger el valor del input username y con ese value hacer una peticion al servicio 
+    //y la peticion debe de llamar a la ruta creada (usernameDuplicado) esto me devuelve true, si me devuelve true es que ya existe el username y tengo que lanzar el error, si me devuelve false no está duplicado y es correcto
+    const myUsername = pControlName.value;
+    console.log(myUsername);
+    const dbCheck = await this.usersServices.getByStrictUsername(myUsername);
+    console.log(dbCheck);
+
+
+    if (dbCheck) {
+      return null
+    } else {
+      return { userDupeValidator: true }
+    }
+
+  }
+
+  handleAddressChange($event: any) {
+    this.registerForm.patchValue({
+      direccion: $event.formatted_address
+    })
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user.interface';
+import { UsersService } from 'src/app/services/users.service';
 
 
 @Component({
@@ -9,12 +11,21 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: User | any;
 
+  constructor(
+    private router: Router,
+    private usersService: UsersService
+  ) { }
+
+  // async ngOnInit(): Promise<User | any> {
+  //   this.user = await this.usersService.getById()
+  // }
   ngOnInit(): void {
+
   }
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('user-token');
     this.router.navigate(['/login']);
   }

@@ -8,6 +8,15 @@
 	border-color: #dee2e6 #dee2e6 #fff;
 }
 
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+	width: 100%;
+	padding-right: var(--bs-gutter-x,.75rem);
+	padding-left: var(--bs-gutter-x,.75rem);
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 75px;
+}
+
 img {
     display: block;
     width: 100%;
@@ -118,11 +127,23 @@ article {
 
 .mapita {
     margin: 20px auto;
-    height: 480px;
-    width: 480px;
+    height: 360px;
+    width: 360px;
 }
 
 agm-map {
     height: 100%;
     width: 100%;
+}
+
+@media (min-width: 576px) { /* Aprovecho queries default de bootstrap*/
+
+}
+
+@media (min-width: 768px) { /* Aprovecho queries default de bootstrap*/
+
+    .mapita {
+        height: 400px;
+        width: 610px;
+    }
 }

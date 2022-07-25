@@ -61,7 +61,7 @@
                                 <div class="rating_text">
                                     <ul class="d-flex justify-content-between">
                                         <li class="positive">
-                                            <span>21 Positivas</span>
+                                            <span>{{user?.rating}} Positivas</span>
                                         </li>
                                         <li class="neutral">
                                             <span>4 Neutrales</span>
@@ -76,29 +76,34 @@
                             </div>
 
                             <div class="info_bio p-3">
-                                <div class="my-3">
-                                    <strong>Miembro desde:</strong>
-                                    <span>15 jul. 2022</span>
+                                <div class="my-3 ps-3">
+                                    <strong>Nombre completo:</strong>
+                                    <span>{{user?.nombre}} {{user?.apellidos}}</span>
                                 </div>
-                                <div class="my-2">
+                                <div class="my-3 ps-3">
+                                    <strong>Email:</strong>
+                                    <span>{{user?.email}}</span>
+                                </div>
+                                <div class="my-3 ps-3">
+                                    <strong>Fecha de nacimiento:</strong>
+                                    <span>{{user?.fecha_nacimiento | date:'dd MMMM YYYY'}} - {{userEdad}} años</span>
+                                </div>
+                                <div class="my-3 ps-3">
+                                    <strong>Miembro desde:</strong>
+                                    <span>{{user?.fecha_registro | date: 'dd MMMM YYYY'}} - </span>
+                                </div>
+                                <div class="my-3 ps-3">
                                     <strong>Última conexión:</strong>
                                     <span class="text-muted">Menos de 24 horas</span>
                                     <span class="text-success">Online</span>
                                     <span class="text-danger">Más de 1 semana</span>
                                 </div>
-                                <div class="my-2">
-                                    <strong>Idiomas:</strong>
-                                    <ul>
-                                        <li>Español</li>
-                                        <li>Inglés</li>
-                                    </ul>
-                                </div>
-                                <div class="my-2">
-                                    <strong>Ubicación:</strong>
-                                    <span><i class="fa fa-map-marker me-2"></i>Algeciras, España</span>
+
+                                <div class="my-3">
+                                    <strong class="ps-3">Ubicación:</strong>
+                                    <span class="ps-3"><i class="fa fa-map-marker me-2"></i>{{user?.direccion}}</span>
                                     <!-- <input ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
-                                        (onAddressChange)="handleAddressChange($event)" class="d-none"
-                                        [value]="user?.direccion"> -->
+                                        (onAddressChange)="handleAddressChange($event)"> -->
 
                                     <div class="mapita">
                                         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
