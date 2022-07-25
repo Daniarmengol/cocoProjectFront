@@ -16,28 +16,22 @@
                     aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-
-
-
-                <form #filtroProductos="ngForm" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <form #filtroProductos="ngForm" (ngSubmit)="search(filtroProductos.value)"
+                    class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <hr>
-
                     <label class="form-label" for="nombre">Nombre</label>
                     <input class="form-control" type="text" ngModel name="nombre" placeholder="Nombre del producto"
                         required #nombre="ngModel">
                     <hr>
-
                     <label class="form-label" for="username">Usuario</label>
                     <input class="form-control" type="text" ngModel name="username" placeholder="Nombre del usuario"
                         required #usuario="ngModel">
                     <hr>
-
                     <label class="form-label" for="">Marca</label>
                     <input class="form-control" name="marca" type="text" ngModel placeholder="Marca del producto"
                         required #marca="ngModel">
                     <hr>
-
-                    <div ngModelGroup="precio">
+                    <div>
                         <label class="form-label" for="precio">Precio</label>
                         <input class="form-control" type="number" id="precio" name="precioMin" min="0" ngModel
                             placeholder="0" max="99999" required #precioMin="ngModel">
@@ -45,13 +39,12 @@
                             max="99999" placeholder="99999" required #precioMax="ngModel">
                     </div>
                     <hr>
-
                     <label class="form-label" for="">Categorias</label>
                     <select name="categoria" ngModel class="form-select" required #categoria="ngModel">
                         <option value="">Selecciona una categoria</option>
+                        <option value="figuras">figuras</option>
                     </select>
                     <hr>
-
                     <label class="form-label" for="estado">Estado</label>
                     <select name="estado" ngModel class="form-select" required #estado="ngModel">
                         <option value="">Estado del producto</option>
@@ -60,15 +53,8 @@
                         <option value="desperfectos">Desperfectos</option>
                     </select>
                     <hr>
-
-                    <input type="submit" (click)="searchMercado(filtroProductos.value)" class="btn btn-secondary"
-                        value="Buscar">
-
-                    <pre>{{filtroProductos.value | json}}</pre>
+                    <input type="submit" class="btn btn-secondary" value="Buscar">
                 </form>
-
-
-
             </div>
         </div>
     </div>

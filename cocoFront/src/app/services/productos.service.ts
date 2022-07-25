@@ -51,9 +51,8 @@ export class ProductosService {
         authorization: localStorage.getItem('user-token')!
       })
     }
-    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/busqueda/' + formValue.nombre + '/' + formValue.categoria + '/' + formValue.precio.precioMax + '/' + formValue.precio.precioMin + '/' + formValue.marca + '/' + formValue.estado, httpOptions))
+    return lastValueFrom(this.httpClient.post<any>(this.baseUrl + '/productos_venta/busqueda', formValue, httpOptions))
+
   }
-
-
 
 }
