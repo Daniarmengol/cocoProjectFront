@@ -18,6 +18,7 @@ export class MapsService {
   ) { }
 
   // Ideas: https://techclub.tajamar.es/ip-api-para-la-geolocalizacion-con-google-maps-angular/
+
   async getLocationByUserAddress(userId: number): Promise<Localizacion> {
     const user = await this.usersService.getById(userId);
     // console.log(user?.direccion);

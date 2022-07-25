@@ -2,8 +2,8 @@
     <div class="container d-flex justify-content-center vh-100">
         <form novalidate="true" [formGroup]="registerForm" (ngSubmit)="getDataForm()" class="registro form-floating ">
 
-            <div class="title">
-                <h1>bienvenido coleccionista!</h1>
+            <div class="title py-4">
+                <h1>¡Bienvenido Coleccionista!</h1>
             </div>
 
             <div class="form-floating mb-3 mt-4">
@@ -12,21 +12,6 @@
                 <p class="error"
                     *ngIf="registerForm.get('nombre')?.hasError('required') && registerForm.get('nombre')?.touched">El
                     campo es obligatorio
-                </p>
-
-                <p class="error"
-                    *ngIf="registerForm.get('nombre')?.hasError('minlength') && registerForm.get('nombre')?.touched">La
-                    longitud mínima del nombre son 3 carácteres
-                </p>
-
-                <p class="error"
-                    *ngIf="registerForm.get('nombre')?.hasError('maxlength') && registerForm.get('nombre')?.touched">La
-                    longitud máxima del nombre son 15 carácteres
-                </p>
-
-                <p class="error"
-                    *ngIf="registerForm.get('nombre')?.hasError('pattern') && registerForm.get('nombre')?.touched">
-                    pon un nombre real...
                 </p>
             </div>
             <div class="form-floating mb-3">
@@ -40,21 +25,6 @@
                     campo es obligatorio
                 </p>
 
-                <p class="error"
-                    *ngIf="registerForm.get('apellidos')?.hasError('minlength') && registerForm.get('apellidos')?.touched">
-                    el apellido tiene que tener 3 carácteres como mínimo
-                </p>
-
-                <p class="error"
-                    *ngIf="registerForm.get('apellidos')?.hasError('maxlength') && registerForm.get('apellidos')?.touched">
-                    el apellido tiene que tener 20 carácteres como máximo
-                </p>
-
-                <p class="error"
-                    *ngIf="registerForm.get('apellidos')?.hasError('pattern') && registerForm.get('apellidos')?.touched">
-                    pon un apellido válido
-                </p>
-
             </div>
 
             <div class="form-floating mb-3">
@@ -64,7 +34,7 @@
 
                 <p class="error"
                     *ngIf="registerForm.get('fecha_nacimiento')?.hasError('agevalidator') && registerForm.get('fecha_nacimiento')?.touched">
-                    no puedes ser menor de edad
+                    Has de ser mayor de edad para registrarte.
                 </p>
             </div>
 
@@ -74,48 +44,44 @@
 
                 <p class="error"
                     *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
-                    debes de introducir un correo
+                    Debes de introducir un correo electrónico.
                 </p>
 
                 <p class="error"
                     *ngIf="registerForm.get('email')?.hasError('pattern') && registerForm.get('email')?.touched">
-                    el correo tiene que ser válido
+                    El formato del correo electrónico ha de ser válido.
                 </p>
             </div>
             <div class="form-floating mb-3">
 
                 <input type="text" formControlName="direccion" class="form-control" id="address" placeholder="Dirección"
-                    ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places">
+                    ngx-google-places-autocomplete [options]="options" #placesRef="ngx-places"
+                    (onAddressChange)="handleAddressChange($event)">
 
                 <label for="address">Dirección</label>
                 <p class="error"
                     *ngIf="registerForm.get('address')?.hasError('required') && registerForm.get('address')?.touched">
-                    debes de introducir una dirección
-                </p>
-
-                <p class="error"
-                    *ngIf="registerForm.get('address')?.hasError('minlength') && registerForm.get('address')?.touched">
-                    la direccion tiene que tener un mínimo de 10 carácteres
+                    Debes de introducir una dirección.
                 </p>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" formControlName="username" class="form-control" id="usuario"
                     placeholder="Nombre de usuario">
-                <label for="usuario">Usuario</label>
+                <label for="usuario">Nombre de usuario</label>
 
                 <p class="error"
                     *ngIf="registerForm.get('username')?.hasError('required') && registerForm.get('username')?.touched">
-                    elige un usuario!!
+                    Debes introducir un nombre de usuario.
                 </p>
 
                 <p class="error"
                     *ngIf="registerForm.get('username')?.hasError('minlength') && registerForm.get('username')?.touched">
-                    introduce un mínimo de 5 carácteres
+                    El nombre de usuario no puede tener menos de 5 carácteres.
                 </p>
 
                 <p class="error"
-                    *ngIf="registerForm.get('username')?.hasError('maxlength') && registerForm.get('username')?.touched">
-                    introduce un máximo de 15 carácteres
+                    *ngIf="registerForm.get('username')?.hasError('userdupevalidator') && registerForm.get('username')?.touched">
+                    Usuario duplicado.
                 </p>
             </div>
             <div class="form-floating mb-3">
@@ -125,32 +91,30 @@
 
                 <p class="error"
                     *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
-                    debes de elegir una contraseña!!
+                    Debes de introducir una contraseña.
                 </p>
 
                 <p class="error"
                     *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">
-                    la contraseña debe de tener un mínimo de 5 carácteres
+                    La contraseña debe de tener un mínimo de 5 carácteres.
                 </p>
 
                 <p class="error"
                     *ngIf="registerForm.get('password')?.hasError('passwordValidator') && registerForm.get('password')?.touched">
-                    las contraseñas deben coincidir
+                    Las contraseñas deben coincidir.
                 </p>
             </div>
 
             <div class="form-floating mb-3">
                 <input type="password" formControlName="repeatpassword" class="form-control" id="repeat_password"
                     placeholder="Repite la contraseña">
-                <label for="repeatpassword">Repite la contraseña por favor</label>
+                <label for="repeatpassword">Repite la contraseña, por favor.</label>
 
                 <p class="error" *ngIf="registerForm.hasError('passwordvalidator')">
-                    la contraseña no coincide
+                    Las contraseñas deben coincidir.
                 </p>
 
             </div>
-
-
 
             <div class="botonera">
                 <input type="reset" name="limpiar" id="limpiar" value="Limpiar campos">

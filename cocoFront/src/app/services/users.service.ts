@@ -41,6 +41,24 @@ export class UsersService {
     return lastValueFrom(this.httpClient.get<User[]>(this.baseUrl + 'trust/' + trust, httpOptions));
   };
 
+  getByStrictUsername(username: string): Promise<User> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User>(this.baseUrl + 'username/strict/' + username, httpOptions))
+  }
+
+  getByStrictEmail(email: string): Promise<User> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User>(this.baseUrl + 'email/strict/' + email, httpOptions))
+  }
+
   registerUser(pFormValue: any): Promise<User | any> {
     return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'registro', pFormValue))
   }

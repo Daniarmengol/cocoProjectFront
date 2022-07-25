@@ -50,9 +50,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.userEdad = dayjs().diff(dayjs(this.user.fecha_nacimiento), 'years');
       this.userLocation = await this.mapsService.getLocationByUserAddress(params.userId)
 
-      // Gestionar la dirección en el registro con el autocomplete!! (ask Juanan)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       if (this.userLocation.results) {
-        // sacar longitud y latitud de lo anterior (2 días crying)
         // console.log(this.userLocation.results[0].geometry.location.lat);
         // console.log(this.userLocation.results[0].geometry.location.lng);
         this.lat = this.userLocation.results[0].geometry.location.lat;
