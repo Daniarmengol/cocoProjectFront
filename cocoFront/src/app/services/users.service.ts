@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { User } from '../interfaces/user.interface';
+import { AbstractControl, AsyncValidatorFn, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,8 @@ export class UsersService {
         authorization: localStorage.getItem('user-token')!
       })
     };
+    console.log(username);
+
     return lastValueFrom(this.httpClient.get<User>(this.baseUrl + 'username/strict/' + username, httpOptions))
   }
 
@@ -59,8 +62,23 @@ export class UsersService {
     return lastValueFrom(this.httpClient.get<User>(this.baseUrl + 'email/strict/' + email, httpOptions))
   }
 
+  getUserByToken(): Promise<User> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User>(this.baseUrl + 'token/check', httpOptions))
+  }
+
   registerUser(pFormValue: any): Promise<User | any> {
-    return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'registro', pFormValue))
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      })
+    };
+
+    return lastValueFrom(this.httpClient.post<User | any>(this.baseUrl + 'registro', pFormValue, httpOptions))
   }
 
   login(pFormValue: any): Promise<User | any> {

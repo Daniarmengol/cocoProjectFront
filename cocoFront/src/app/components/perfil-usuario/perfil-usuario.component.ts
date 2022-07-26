@@ -27,6 +27,7 @@ export class PerfilUsuarioComponent implements OnInit {
   user: Observable<User[]> | any;
   profileTab: string = 'informacion';
   userEdad: any;
+  userAntiguedad: any;
 
   // MAPA
   lat: number = 40;
@@ -48,6 +49,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.user = await this.usersService.getById(params.userId);
       // this.userAgeCalc(this.user.fecha_nacimiento)
       this.userEdad = dayjs().diff(dayjs(this.user.fecha_nacimiento), 'years');
+      this.userAntiguedad = dayjs().diff(dayjs(this.user.fecha_registro), 'days')
       this.userLocation = await this.mapsService.getLocationByUserAddress(params.userId)
 
       if (this.userLocation.results) {

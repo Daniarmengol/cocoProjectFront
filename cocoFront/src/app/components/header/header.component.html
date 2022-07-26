@@ -19,9 +19,13 @@
                         Perfil
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/perfil']">Mi Perfil</a></li>
-                        <li><a class="dropdown-item">Mis Colecciones</a></li>
-                        <li><a class="dropdown-item">Nuevo Producto</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id]">Mi Perfil</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id, 'colecciones']">Mis
+                                Colecciones</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id, 'nuevo-producto']">Nuevo
+                                Producto</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id, 'nueva-coleccion']">Nueva
+                                Colección</a></li>
                         <li class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item2" (click)="logout()">Logout</a></li>

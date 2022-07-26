@@ -12,18 +12,21 @@ import { UsersService } from 'src/app/services/users.service';
 export class HeaderComponent implements OnInit {
 
   user: User | any;
+  token: string | null = localStorage.getItem('user-token');
 
   constructor(
     private router: Router,
     private usersService: UsersService
   ) { }
 
-  // async ngOnInit(): Promise<User | any> {
-  //   this.user = await this.usersService.getById()
-  // }
-  ngOnInit(): void {
+  async ngOnInit(): Promise<User | any> {
+    this.user = await this.usersService.getUserByToken()
+    console.log(this.user);
 
   }
+  // ngOnInit(): void {
+
+  // }
 
   logout(): void {
     localStorage.removeItem('user-token');
