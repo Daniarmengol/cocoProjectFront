@@ -17,11 +17,56 @@
                         <img [src]="user?.avatar" alt="user?.username">
                     </figure>
                     <div class="button_container text-center py-3">
-                        <button class="btn btn-success">
-                            ESTO ME LLEVARÍA A /:userId/colecciones/:colecId
+                        <button class="btn btn-success" [routerLink]="['colecciones']">
+                            Colecciones de {{user?.username}}
                         </button>
                     </div>
                 </div>
+
+                <div class="d-none d-lg-block user_actions_dropdown">
+                    <div>
+                        <button class="btn btn-success ms-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#menu_collapse">
+                            Menu
+                        </button>
+                    </div>
+                    <div class="collapse" id="menu_collapse">
+                        <div class="card card-body">
+                            <ul class="nav nav-tabs d-flex flex-column">
+                                <li class="nav-item nav-link">Añadir a amigos</li>
+                                <li class="nav-item nav-link">Enviar email</li>
+                                <li class="nav-item dropdown-divider"></li>
+                                <li class="nav-item nav-link">Voto positivo</li>
+                                <li class="nav-item nav-link">Voto negativo</li>
+                                <li class="nav-item nav-link">Denunciar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="d-block d-lg-none user_actions_dropdown">
+                    <div>
+                        <button class="btn btn-success ms-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#menu_collapse">
+                            Menu
+                        </button>
+                    </div>
+                    <div class="collapse" id="menu_collapse">
+                        <div class="card card-body">
+                            <ul class="nav nav-tabs d-flex flex-column">
+                                <li class="nav-item nav-link">Añadir a amigos</li>
+                                <li class="nav-item nav-link">Enviar email</li>
+                                <li class="nav-item dropdown-divider"></li>
+                                <li class="nav-item nav-link">Voto positivo</li>
+                                <li class="nav-item nav-link">Voto negativo</li>
+                                <li class="nav-item nav-link">Denunciar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="perfil_tabs mt-3">
 
                     <nav>
@@ -29,6 +74,10 @@
                             <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'informacion'}"
                                 (click)="cargarArticle('informacion')">
                                 Información
+                            </li>
+                            <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'productos'}"
+                                (click)="cargarArticle('productos')">
+                                Productos
                             </li>
                             <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'colecciones'}"
                                 (click)="cargarArticle('colecciones')">
@@ -38,6 +87,7 @@
                     </nav>
 
                     <div class="content">
+
                         <article *ngIf="profileTab === 'informacion'">
                             <div class="info_eval">
                                 <div class="info_top d-flex justify-content-center">
@@ -90,7 +140,8 @@
                                 </div>
                                 <div class="my-3 ps-3">
                                     <strong>Miembro desde:</strong>
-                                    <span>{{user?.fecha_registro | date: 'dd MMMM YYYY'}} - </span>
+                                    <span>{{user?.fecha_registro | date: 'dd MMMM YYYY'}} - {{userAntiguedad}}
+                                        días</span>
                                 </div>
                                 <div class="my-3 ps-3">
                                     <strong>Última conexión:</strong>
@@ -114,14 +165,25 @@
                             </div>
                         </article>
 
+                        <article *ngIf=" profileTab==='productos'">
+                            <br>
+                            ESTO ES PRODUCTOS
+                            <br>
+                            ESTO ME CARGARÍA DIVS CON PRODUCTOS DEL USUARIO
+                            <br>
+                        </article>
+
                         <article *ngIf=" profileTab==='colecciones'">
+                            <br>
                             ESTO ES COLECCIONES
                             <br>
                             ESTO ME CARGARÍA DIVS CON COLECCIONES DEL USUARIO
                             <br>
 
                         </article>
+
                     </div>
+
                 </div>
             </section>
         </div>

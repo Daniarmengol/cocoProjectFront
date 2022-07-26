@@ -127,8 +127,8 @@ article {
 
 .mapita {
     margin: 20px auto;
-    height: 360px;
-    width: 360px;
+    height: 465px;
+    width: 465px;
 }
 
 agm-map {
@@ -136,14 +136,71 @@ agm-map {
     width: 100%;
 }
 
-@media (min-width: 576px) { /* Aprovecho queries default de bootstrap*/
+/* Aprovecho queries default de bootstrap*/
 
-}
+/* @media (min-width: 576px) { 
 
-@media (min-width: 768px) { /* Aprovecho queries default de bootstrap*/
+} */
+
+@media (min-width: 768px) { 
 
     .mapita {
         height: 400px;
         width: 610px;
+    }
+}
+
+@media (min-width: 992px) { 
+
+    .mapita {
+        height: 500px;
+        width: 850px;
+    }
+
+    .user_actions_dropdown {
+        position: relative;
+    }
+
+    .user_actions_dropdown div:first-child {
+        position:absolute;
+        top: -380px;
+        right: 20px;
+    }
+
+    #menu_collapse .card-body {
+	    /* flex: 1 1 auto; */
+	    padding: 0;
+    }
+
+    #menu_collapse>div {
+        /* margin-top: 43px; */
+        margin-right: 40px;
+    }
+    
+    #menu_collapse div ul {
+        width: fit-content;
+        height: auto;
+        border: 1px solid #dee2e6;
+    }
+
+    #menu_collapse div ul li {
+        cursor:pointer;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .mapita {
+        height: 650px;
+        width: 1000px;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .mapita {
+        height: 650px;
+        width: 1200px;
     }
 }
