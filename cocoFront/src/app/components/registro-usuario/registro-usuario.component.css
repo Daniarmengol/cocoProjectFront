@@ -102,7 +102,7 @@
     color: whitesmoke;
 }
 
-input.ng-valid {
+.validacion.ng-valid {
     border-bottom: 3px solid var(--colorQuinario);
 }
 

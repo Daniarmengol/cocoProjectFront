@@ -67,6 +67,36 @@
 
                 </div>
 
+                <div class="info_eval">
+                    <div class="info_top d-flex justify-content-center">
+
+                        <div class="circle mt-4">
+                            <div>
+                                <i *ngIf="user?.trusted === 1" class="fa-solid fa-star trusted_star"></i>
+
+                                <img [src]="user?.avatar" alt="user?.username">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info_text text-center my-4">
+                        <p>
+                            <strong>98%</strong>
+                            de valoraciones positivas
+                            <br>
+                            de 5 usuarios.
+                        </p>
+                    </div>
+                    <div class="rating_text">
+                        <ul class="d-flex justify-content-between">
+                            <li class="positive">
+                                <span>{{user?.rating}} Likes <i class="fa-solid fa-thumbs-up"></i></span>
+                            </li>
+                        </ul>
+                        <p class="text-muted small ps-3">* Valoraciones recibidas en los últimos 6 meses.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="perfil_tabs mt-3">
 
                     <nav>
@@ -89,41 +119,6 @@
                     <div class="content">
 
                         <article *ngIf="profileTab === 'informacion'">
-                            <div class="info_eval">
-                                <div class="info_top d-flex justify-content-center">
-
-                                    <div class="circle mt-4">
-                                        <div>
-                                            <i *ngIf="user?.trusted === 1" class="fa-solid fa-star trusted_star"></i>
-
-                                            <img [src]="user?.avatar" alt="user?.username">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="info_text text-center my-4">
-                                    <p>
-                                        <strong>98%</strong>
-                                        de valoraciones positivas
-                                        <br>
-                                        en 139 ventas (26 miembros).
-                                    </p>
-                                </div>
-                                <div class="rating_text">
-                                    <ul class="d-flex justify-content-between">
-                                        <li class="positive">
-                                            <span>{{user?.rating}} Positivas</span>
-                                        </li>
-                                        <li class="neutral">
-                                            <span>4 Neutrales</span>
-                                        </li>
-                                        <li class="negative">
-                                            <span>1 Negativas</span>
-                                        </li>
-                                    </ul>
-                                    <p class="text-muted small ps-3">* Valoraciones recibidas en los últimos 6 meses.
-                                    </p>
-                                </div>
-                            </div>
 
                             <div class="info_bio p-3">
                                 <div class="my-3 ps-3">

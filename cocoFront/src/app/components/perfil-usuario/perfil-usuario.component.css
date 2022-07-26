@@ -106,7 +106,7 @@ article {
     border-bottom: 3px solid var(--colorQuinario);
 }
 
-.neutral {
+/* .neutral {
     background-color: #adadac39;
     border-bottom: 3px solid #adadac;
 }
@@ -114,11 +114,11 @@ article {
 .negative {
     background-color: #d36f4d50;
     border-bottom: 3px solid #b15c3f;
-}
+} */
 
-.info_bio {
+/* .info_bio {
     border-top: 1px solid #e2e5ea;
-}
+} */
 
 .info_bio div {
     display: flex;

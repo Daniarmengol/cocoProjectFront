@@ -20,6 +20,8 @@ export class RegistroUsuarioComponent implements OnInit {
 
   registerForm: FormGroup;
 
+  self: any = this;
+
   constructor(
     private usersServices: UsersService,
     private router: Router
@@ -43,15 +45,15 @@ export class RegistroUsuarioComponent implements OnInit {
       ]),
       username: new FormControl('', [
         Validators.required,
-        Validators.minLength(5),
-        this.userDupeValidator
-      ]),
+        Validators.minLength(5)
+      ]
+      ),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(5)
       ]),
       repeatpassword: new FormControl('', [])
-    }, [this.passwordValidator,])
+    }, [this.passwordValidator])
   }
 
   ngOnInit(): void {
@@ -89,7 +91,7 @@ export class RegistroUsuarioComponent implements OnInit {
       const response: any = await this.usersServices.registerUser(this.registerForm.value);
       console.log(response);
       const msg = (response.success) ? response.success : response.error;
-      alert(msg); // sweet alerts
+      alert(msg); // sweet alerts usuario duplicado
       if (response.success) {
         this.router.navigate(['/login'])
       }
@@ -99,26 +101,11 @@ export class RegistroUsuarioComponent implements OnInit {
 
   }
 
-  async userDupeValidator(pControlName: AbstractControl) {
-    // tengo que recoger el valor del input username y con ese value hacer una peticion al servicio 
-    //y la peticion debe de llamar a la ruta creada (usernameDuplicado) esto me devuelve true, si me devuelve true es que ya existe el username y tengo que lanzar el error, si me devuelve false no está duplicado y es correcto
-    const myUsername = pControlName.value;
-    console.log(myUsername);
-    const dbCheck = await this.usersServices.getByStrictUsername(myUsername);
-    console.log(dbCheck);
-
-
-    if (dbCheck) {
-      return null
-    } else {
-      return { userDupeValidator: true }
-    }
-
-  }
-
   handleAddressChange($event: any) {
     this.registerForm.patchValue({
       direccion: $event.formatted_address
     })
   }
+
+
 }
