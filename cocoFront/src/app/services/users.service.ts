@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { User } from '../interfaces/user.interface';
+import { Coleccion } from '../interfaces/coleccion.interface';
 
 @Injectable({
   providedIn: 'root'

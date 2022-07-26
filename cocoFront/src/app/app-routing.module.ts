@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: 'colecciones', component: ColeccionesComponent },
   { path: 'colecciones/:idusuario', component: ColeccionViewComponent },
-  { path: 'colecciones/:idusuario/idcolecciones', component: UserColeccionViewComponent },
+  { path: 'colecciones/:idusuario/:idcolecciones', component: UserColeccionViewComponent },
   { path: '**', component: C404Component }
 
 ];
