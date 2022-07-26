@@ -9,6 +9,8 @@ import { LoginGuard } from './guards/login.guard';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
 import { ProductoViewComponent } from './components/producto-view/producto-view.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
+import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -19,7 +21,10 @@ const routes: Routes = [
   { path: 'colecciones', component: ColeccionesComponent, canActivate: [LoginGuard] },
   { path: 'producto/:id', component: ProductoViewComponent, canActivate: [LoginGuard] },
   { path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard] },
+  { path: 'colecciones/:idusuario', component: ColeccionViewComponent },
+  { path: 'colecciones/:idusuario/idcolecciones', component: UserColeccionViewComponent },
   { path: '**', component: C404Component }
+
 ];
 
 @NgModule({

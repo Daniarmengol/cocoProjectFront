@@ -21,6 +21,10 @@ import { environment } from 'src/environments/environment';
 
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
+import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
+import { CollectionCardComponent } from './components/collection-card/collection-card.component';
+import { UserCollectionCardComponent } from './components/user-collection-card/user-collection-card.component';
+import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     ProductosComponent,
     ColeccionesComponent,
     ProductoViewComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    ColeccionViewComponent,
+    CollectionCardComponent,
+    UserCollectionCardComponent,
+    UserColeccionViewComponent
   ],
   imports: [
     BrowserModule,
