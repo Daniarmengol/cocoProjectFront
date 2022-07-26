@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Coleccion } from 'src/app/interfaces/coleccion.interface';
 
 @Component({
   selector: 'app-colecciones',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColeccionesComponent implements OnInit {
 
+  coleccion: Coleccion[] | any = []
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

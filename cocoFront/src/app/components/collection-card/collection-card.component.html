@@ -3,15 +3,15 @@
     <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street">
     <div class="card-img-overlay d-flex flex-column">
         <div class="card-body">
-            <small class="card-meta mb-2">categoria de la colección</small>
-            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Nombre de la colección</a>
+            <small class="card-meta mb-2">{{ coleccion?.categoria}}</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">{{ coleccion?.titulo }}</a>
             </h4>
-            <small><i class="far fa-clock"></i> October 15, 2020</small>
+            <small><i class="far fa-clock"></i> {{ coleccion?.fecha_creacion }}</small>
         </div>
         <div class="card-footer">
             <div class="media">
                 <div class="media-body">
-                    <h6 class="my-0 text-white d-block">Nombre de usuario</h6>
+                    <h6 class="my-0 text-white d-block"> nombre usuario </h6>
                 </div>
                 <img class="m-auto mt-2 rounded-circle"
                     src="https://assets.codepen.io/460692/internal/avatars/users/default.png"

@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
+import { Coleccion } from '../interfaces/coleccion.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +18,37 @@ export class ColeccionesService {
   constructor(
     private httpClient: HttpClient
   ) { }
+
+  getAll(): Promise<Coleccion[] | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<Coleccion[]>(this.baseUrl, httpOptions))
+
+  }
+
+  getByCodigo(codigo: string): Promise<Coleccion[] | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/colecciones' + codigo, httpOptions))
+  }
+
+  /*  getCollectionByUserId(id: number): Promise<any> {
+     const httpOptions = {
+       headers: new HttpHeaders({
+         authorization: localStorage.getItem('user-token')!
+       })
+     };
+ 
+     return lastValueFrom(this.httpClient.get<any>())
+ 
+   } */
+
+
+
 }
