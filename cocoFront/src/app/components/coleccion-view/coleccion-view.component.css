@@ -1,12 +1,15 @@
-.container {
-    height: 100vh;
-    /* Background color */
-    background-color: rgba(0, 0, 0, 0.3);
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
 
-    /* You can use gradient background color such as
-background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%); */
+h1 {
+    text-align: center;
+    padding: 20px;
 
-    /* Curved corners */
-    border-bottom-left-radius: 50% 40%;
-    border-bottom-right-radius: 50% 40%;
 }

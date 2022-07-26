@@ -17,6 +17,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { ColeccionesComponent } from './components/colecciones/colecciones.component';
 import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
+import { UserCollectionCardComponent } from './components/user-collection-card/user-collection-card.component';
+import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { CollectionCardComponent } from './components/collection-card/collection
     ProductosComponent,
     ColeccionesComponent,
     ColeccionViewComponent,
-    CollectionCardComponent
+    CollectionCardComponent,
+    UserCollectionCardComponent,
+    UserColeccionViewComponent
   ],
   imports: [
     BrowserModule,
