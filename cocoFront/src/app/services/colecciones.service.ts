@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { Coleccion } from '../interfaces/coleccion.interface';
+import { FullCollection } from '../interfaces/coleccionComplete.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,18 @@ export class ColeccionesService {
     }
     return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/colecciones' + codigo, httpOptions))
   }
+
+  getLastCollections(): Promise<FullCollection[] | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.get<FullCollection[]>(this.baseUrl + '/ultimasColecciones', httpOptions))
+
+  }
+
+
 
   /*  getCollectionByUserId(id: number): Promise<any> {
      const httpOptions = {
