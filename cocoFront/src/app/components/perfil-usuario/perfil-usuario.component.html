@@ -159,23 +159,6 @@
                             </div>
                         </article>
 
-                        <article *ngIf=" profileTab==='productos'">
-                            <br>
-                            ESTO ES PRODUCTOS
-                            <br>
-                            ESTO ME CARGARÍA DIVS CON PRODUCTOS DEL USUARIO
-                            <br>
-                        </article>
-
-                        <article *ngIf=" profileTab==='colecciones'">
-                            <br>
-                            ESTO ES COLECCIONES
-                            <br>
-                            ESTO ME CARGARÍA DIVS CON COLECCIONES DEL USUARIO
-                            <br>
-
-                        </article>
-
                         <article *ngIf="profileTab==='productos'">
                             <div class="flex m-4">
                                 <button class="btn btn-secondary addProducto">Nuevo Producto</button>
@@ -203,6 +186,17 @@
                                 </div>
                             </div>
                         </article>
+
+                        <article *ngIf=" profileTab==='colecciones'">
+                            <br>
+                            ESTO ES COLECCIONES
+                            <br>
+                            ESTO ME CARGARÍA DIVS CON COLECCIONES DEL USUARIO
+                            <br>
+
+                        </article>
+
+
 
                     </div>
 

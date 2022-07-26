@@ -9,6 +9,7 @@ import { MapsService } from 'src/app/services/maps.service';
 import { ProductosService } from 'src/app/services/productos.service';
 import { UsersService } from 'src/app/services/users.service';
 import * as dayjs from 'dayjs';
+import { Producto } from 'src/app/interfaces/producto.interface';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class PerfilUsuarioComponent implements OnInit {
     componentRestrictions: { country: 'ES' }
   };
   /* MIS PRODUCTOS */
-  misProductos: any[] = [];
+  misProductos: Producto[] | any = [];
 
 
   user: Observable<User[]> | any;
@@ -54,7 +55,9 @@ export class PerfilUsuarioComponent implements OnInit {
       this.userEdad = dayjs().diff(dayjs(this.user.fecha_nacimiento), 'years');
       this.userAntiguedad = dayjs().diff(dayjs(this.user.fecha_registro), 'days')
       this.userLocation = await this.mapsService.getLocationByUserAddress(params.userId)
-
+      /* MIS PRODUCTOS */
+      this.misProductos = await this.usersService.getProductosByUser(params.userId)
+      console.log(this.misProductos)
       if (this.userLocation.results) {
         // console.log(this.userLocation.results[0].geometry.location.lat);
         // console.log(this.userLocation.results[0].geometry.location.lng);
@@ -63,9 +66,7 @@ export class PerfilUsuarioComponent implements OnInit {
         this.zoom = 16;
       };
 
-      /* MIS PRODUCTOS */
-      this.misProductos = await this.usersService.getProductosByUser(params.userId)
-      console.log(this.misProductos)
+
     });
 
 

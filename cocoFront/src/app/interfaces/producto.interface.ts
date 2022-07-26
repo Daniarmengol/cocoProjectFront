@@ -8,4 +8,5 @@ export interface Producto {
     estado: string;
     fecha_subida: string;
     usuario_id: number;
+    descripcion: string;
 }
