@@ -98,7 +98,6 @@
                 </div>
 
                 <div class="perfil_tabs mt-3">
-
                     <nav>
                         <ul class="nav nav-tabs">
                             <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'informacion'}"
@@ -113,11 +112,11 @@
                                 (click)="cargarArticle('colecciones')">
                                 Colecciones
                             </li>
+
                         </ul>
                     </nav>
 
-                    <div class="content">
-
+                    <div class="content mb-5">
                         <article *ngIf="profileTab === 'informacion'">
 
                             <div class="info_bio p-3">
@@ -175,6 +174,34 @@
                             ESTO ME CARGARÍA DIVS CON COLECCIONES DEL USUARIO
                             <br>
 
+                        </article>
+
+                        <article *ngIf="profileTab==='productos'">
+                            <div class="flex m-4">
+                                <button class="btn btn-secondary addProducto">Nuevo Producto</button>
+                            </div>
+                            <div class="row g-4 p-4">
+                                <div class="product-card col-12 col-md-6 col-lg-4"
+                                    *ngFor="let producto of misProductos">
+                                    <div class="card rounded-3">
+                                        <div class="img card-img-top" [ngStyle]="{'background-image': 'url(' + producto.imagen
+                                         + ')'}">
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{producto.nombre}}</h5>
+                                            <ul class="prod_caracteristicas mt-3 mb-3">
+                                                <li>Precio: {{producto.precio}}€</li>
+                                                <li>Categoria: {{producto.categoria}}</li>
+                                                <li>Marca: {{producto.marca}}</li>
+                                                <li>Estado: {{producto.estado}}</li>
+                                            </ul>
+                                            <h6>Descripcion:</h6>
+                                            <p>{{producto.descripcion}}</p>
+                                            <button id="prodBtn" class="btn btn-success mt-3">Editar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </article>
 
                     </div>

@@ -20,6 +20,8 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { environment } from 'src/environments/environment';
 
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
+
 
 import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
@@ -42,7 +44,8 @@ import { UserColeccionViewComponent } from './components/user-coleccion-view/use
     ColeccionViewComponent,
     CollectionCardComponent,
     UserCollectionCardComponent,
-    UserColeccionViewComponent
+    UserColeccionViewComponent,
+    NuevoProductoComponent,
   ],
   imports: [
     BrowserModule,

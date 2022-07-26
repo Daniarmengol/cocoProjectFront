@@ -11,6 +11,7 @@ import { ProductoViewComponent } from './components/producto-view/producto-view.
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
 import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
+import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -20,9 +21,13 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent, canActivate: [LoginGuard] },
   { path: 'colecciones', component: ColeccionesComponent, canActivate: [LoginGuard] },
   { path: 'producto/:id', component: ProductoViewComponent, canActivate: [LoginGuard] },
-  { path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard] },
-  { path: 'colecciones/:idusuario', component: ColeccionViewComponent },
-  { path: 'colecciones/:idusuario/:idcolecciones', component: UserColeccionViewComponent },
+  { path: 'colecciones/:idusuario', component: ColeccionViewComponent, canActivate: [LoginGuard] },
+  { path: 'colecciones/:idusuario/:idcolecciones', component: UserColeccionViewComponent, canActivate: [LoginGuard] },
+  {
+    path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard], children: [
+      { path: 'nuevo-producto', component: NuevoProductoComponent }
+    ]
+  },
   { path: '**', component: C404Component }
 
 ];

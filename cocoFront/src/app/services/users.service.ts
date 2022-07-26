@@ -94,5 +94,13 @@ export class UsersService {
     return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + '/rand/trusted', httpOptions))
   }
 
+  getProductosByUser(id: number): Promise<User | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + '/mis-productos/' + id, httpOptions))
 
+  }
 }

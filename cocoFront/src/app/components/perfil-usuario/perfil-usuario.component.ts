@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Localizacion } from 'src/app/interfaces/localizacion.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { MapsService } from 'src/app/services/maps.service';
+import { ProductosService } from 'src/app/services/productos.service';
 import { UsersService } from 'src/app/services/users.service';
 import * as dayjs from 'dayjs';
 
@@ -21,7 +22,9 @@ export class PerfilUsuarioComponent implements OnInit {
   options: any = {
     types: [],
     componentRestrictions: { country: 'ES' }
-  }
+  };
+  /* MIS PRODUCTOS */
+  misProductos: any[] = [];
 
 
   user: Observable<User[]> | any;
@@ -60,6 +63,9 @@ export class PerfilUsuarioComponent implements OnInit {
         this.zoom = 16;
       };
 
+      /* MIS PRODUCTOS */
+      this.misProductos = await this.usersService.getProductosByUser(params.userId)
+      console.log(this.misProductos)
     });
 
 

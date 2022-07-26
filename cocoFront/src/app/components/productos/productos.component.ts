@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Producto } from 'src/app/interfaces/producto.interface';
 import { User } from 'src/app/interfaces/user.interface';
 import { ProductosService } from 'src/app/services/productos.service';
@@ -15,6 +14,7 @@ export class ProductosComponent implements OnInit {
   usuarios: User[] = [];
   queryParamsStatus: string = "";
 
+
   constructor(
     private productosService: ProductosService
   ) { }
@@ -25,6 +25,10 @@ export class ProductosComponent implements OnInit {
 
   async search(busqueda: any) {
     this.productosMercado = await this.productosService.busquedaAvanzada(busqueda)
+  }
+
+  async reset() {
+    this.productosMercado = await this.productosService.getUserByProducto()
   }
 
 }

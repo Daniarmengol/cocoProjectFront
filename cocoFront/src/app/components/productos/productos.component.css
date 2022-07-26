@@ -2,6 +2,7 @@
     margin-top: 75px;
 }
 
+
 #productos_view{
     background-color: var(--colorPrimario);
     padding: 20px;
@@ -24,11 +25,18 @@ p{
     margin:0;  
 }
 
+#prodBtn{
+    position: absolute;
+    right: -100%;
+    top: 515px;
+}
+
 .card-img-top{
     height: 414px;
-    background-size:cover;
+    background-size:100%;
     background-repeat: no-repeat;
     background-position: center center;
+    transition: 0.3s;
 }
 .card {
     position: relative;
@@ -40,6 +48,7 @@ p{
     background-clip: border-box;
     border: none;
     border-radius: .25rem;
+    overflow: hidden;
 }
 
 #usuario_info{
@@ -62,11 +71,20 @@ p{
     box-shadow: 0 0 0 .25rem var(--colorPrimario);
 }
 
-/* :is(ul, ol) li {} */
-
 :is(.navbar-toggler, .btn-close):hover  {
     color: #000;
     text-decoration: none;
     opacity: .75;
+}
+
+
+article:hover .card-img-top{
+    background-size: 125%;
+}
+
+article:hover #prodBtn{
+    top: 515px;
+    right: 40px;
+    transition: 0.3s;
 }
 
