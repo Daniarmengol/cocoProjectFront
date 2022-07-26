@@ -4,6 +4,7 @@ import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
+import { ProductosService } from 'src/app/services/productos.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -17,7 +18,9 @@ export class PerfilUsuarioComponent implements OnInit {
   options: any = {
     types: [],
     componentRestrictions: { country: 'ES' }
-  }
+  };
+  /* MIS PRODUCTOS */
+  misProductos: any[] = [];
 
 
   user: Observable<User[]> | any;
@@ -33,13 +36,16 @@ export class PerfilUsuarioComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) { }
 
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async (params: any) => {
       this.user = await this.usersService.getById(params.userId);
+      /* MIS PRODUCTOS */
+      this.misProductos = await this.usersService.getProductosByUser(params.userId)
+      console.log(this.misProductos)
     });
 
     this.userAddress = this.user?.direccion;

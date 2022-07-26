@@ -25,10 +25,10 @@ p{
     margin:0;  
 }
 
-
 #prodBtn{
     position: absolute;
-    bottom: -100%;
+    right: -100%;
+    top: 515px;
 }
 
 .card-img-top{
@@ -83,7 +83,7 @@ article:hover .card-img-top{
 }
 
 article:hover #prodBtn{
-    bottom: 20px;
+    top: 515px;
     right: 40px;
     transition: 0.3s;
 }
