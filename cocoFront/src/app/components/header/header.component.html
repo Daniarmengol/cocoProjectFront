@@ -19,12 +19,12 @@
                         Perfil
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id]">Mi Perfil</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id, 'colecciones']">Mis
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id]">Mi Perfil</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id, 'colecciones']">Mis
                                 Colecciones</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id, 'nuevo-producto']">Nuevo
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id, 'nuevo-producto']">Nuevo
                                 Producto</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/perfil', user.id, 'nueva-coleccion']">Nueva
+                        <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id, 'nueva-coleccion']">Nueva
                                 Colección</a></li>
                         <li class="dropdown-divider">
                         </li>
