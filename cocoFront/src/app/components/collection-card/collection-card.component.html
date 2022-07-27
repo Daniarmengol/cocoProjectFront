@@ -1,16 +1,17 @@
-<div class="card text-white card-has-bg click-col" [ngClass]="{'background-image': 'url(' + imagen + ')'}">
-    >
-    <img class="card-img d-none" [src]="imagen">
+<div class="card text-white card-has-bg click-col" [ngClass]="{'background-image': 'url(' + imagen + ')'}"
+    [routerLink]="['/colecciones', coleccion.usuario_id, coleccion.codigo]">
+
+    <!-- <img class="card-img"> -->
     <div class="card-img-overlay d-flex flex-column">
         <div class="card-body">
             <small class="card-meta mb-2">
-                {{ coleccion?.categoria}}
+                {{ coleccion.categoria | titlecase}}
             </small>
             <h4 class="card-title mt-0 "><a class="text-white" herf="#">
-                    {{ coleccion?.titulo }}
+                    {{ coleccion.titulo }}
                 </a>
             </h4>
-            <small><i class="far fa-clock"></i> {{ coleccion?.fecha_creacion | date }}</small>
+            <small><i class="far fa-clock"></i> {{ coleccion.fecha_creacion | date }}</small>
         </div>
         <div class="card-footer">
             <div class="media">

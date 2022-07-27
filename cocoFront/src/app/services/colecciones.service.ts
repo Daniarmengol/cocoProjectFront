@@ -36,7 +36,7 @@ export class ColeccionesService {
         authorization: localStorage.getItem('user-token')!
       })
     }
-    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/colecciones' + codigo, httpOptions))
+    return lastValueFrom(this.httpClient.get<any>(this.baseUrl + '/codigo/' + codigo, httpOptions))
   }
 
   getLastCollections(): Promise<FullCollection[] | any> {
