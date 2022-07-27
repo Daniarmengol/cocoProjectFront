@@ -34,7 +34,11 @@
                         <div class="card card-body">
                             <ul class="nav nav-tabs d-flex flex-column">
                                 <li class="nav-item nav-link">Añadir a amigos</li>
-                                <li class="nav-item nav-link">Enviar email</li>
+                                <li class="nav-item nav-link">Contactar</li>
+                                <li class="nav-item dropdown-divider"></li>
+                                <li class="nav-item nav-link">Editar avatar</li>
+                                <li class="nav-item nav-link">Editar bio</li>
+                                <li class="nav-item nav-link">Editar login</li>
                                 <li class="nav-item dropdown-divider"></li>
                                 <li class="nav-item nav-link">Voto positivo</li>
                                 <li class="nav-item nav-link">Voto negativo</li>
@@ -81,15 +85,13 @@
                     <div class="info_text text-center my-4">
                         <p>
                             <strong>98%</strong>
-                            de valoraciones positivas
-                            <br>
-                            de 5 usuarios.
+                            de valoraciones positivas.
                         </p>
                     </div>
                     <div class="rating_text">
                         <ul class="d-flex justify-content-between">
                             <li class="positive">
-                                <span>{{user?.rating}} Likes <i class="fa-solid fa-thumbs-up"></i></span>
+                                <span>{{user?.rating}} Puntos <i class="fa-solid fa-star"></i></span>
                             </li>
                         </ul>
                         <p class="text-muted small ps-3">* Valoraciones recibidas en los últimos 6 meses.

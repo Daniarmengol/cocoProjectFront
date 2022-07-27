@@ -113,19 +113,19 @@
                     id="repeat_password" placeholder="Repite la contraseña">
                 <label for="repeatpassword">Repite la contraseña, por favor.</label>
 
-                <p class="error" *ngIf="registerForm.hasError('passwordvalidator')">
+                <p class="error"
+                    *ngIf="registerForm.hasError('passwordvalidator')&& registerForm.get('repeatpassword')?.touched">
                     Las contraseñas deben coincidir.
                 </p>
 
             </div>
 
-            <div class="botonera">
+            <div class=" botonera">
                 <input type="reset" name="limpiar" id="limpiar" value="Limpiar campos">
                 <input type="submit" id="enviar" value="Completar registro" [disabled]="!registerForm.valid">
             </div>
 
         </form>
 
-        {{registerForm.valid}}
     </div>
 </div>

@@ -27,6 +27,7 @@ import { ColeccionViewComponent } from './components/coleccion-view/coleccion-vi
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
 import { UserCollectionCardComponent } from './components/user-collection-card/user-collection-card.component';
 import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
+import { UserFormAvatarComponent } from './components/user-form-avatar/user-form-avatar.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { UserColeccionViewComponent } from './components/user-coleccion-view/use
     UserCollectionCardComponent,
     UserColeccionViewComponent,
     NuevoProductoComponent,
+    UserFormAvatarComponent,
   ],
   imports: [
     BrowserModule,

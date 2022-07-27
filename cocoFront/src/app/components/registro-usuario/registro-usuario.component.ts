@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import * as dayjs from 'dayjs';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -91,7 +92,13 @@ export class RegistroUsuarioComponent implements OnInit {
       const response: any = await this.usersServices.registerUser(this.registerForm.value);
       console.log(response);
       const msg = (response.success) ? response.success : response.error;
-      alert(msg); // sweet alerts usuario duplicado
+      // alert(msg); // sweet alerts usuario duplicado
+      Swal.fire({
+        title: 'Ha habido un error!',
+        icon: 'error',
+        text: msg,
+        timer: 3000
+      })
       if (response.success) {
         this.router.navigate(['/login'])
       }
