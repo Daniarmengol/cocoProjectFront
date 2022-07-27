@@ -43,10 +43,6 @@
     width: 75%;
 }
 
-
-
-
-
 /* .registro input {
     width: 75%;
     background-color: transparent;
@@ -102,7 +98,11 @@
     color: whitesmoke;
 }
 
-.validacion.ng-valid {
+/* input.ng-valid.ng-touched {
+    border-bottom: 3px solid var(--colorQuinario);
+}
+
+.validacion.ng-valid.ng-touched {
     border-bottom: 3px solid var(--colorQuinario);
 }
 
@@ -115,8 +115,8 @@ input.ng-invalid.ng-touched {
     background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 
 }
-
+*/
 .error {
     color: tomato;
     font-size: 12px;
-}
+} 
