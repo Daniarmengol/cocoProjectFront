@@ -4,6 +4,17 @@ html {
     background: var(--colorPrimario) !important;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+
 .user_card {
     height: 400px;
     width: 350px;
