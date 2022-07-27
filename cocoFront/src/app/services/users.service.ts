@@ -91,7 +91,7 @@ export class UsersService {
         authorization: localStorage.getItem('user-token')!
       })
     };
-    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + '/rand/trusted', httpOptions))
+    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + 'rand/trusted', httpOptions))
   }
 
   getProductosByUser(id: number): Promise<User | any> {
@@ -100,7 +100,7 @@ export class UsersService {
         authorization: localStorage.getItem('user-token')!
       })
     };
-    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + '/mis-productos/' + id, httpOptions))
+    return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + 'mis-productos/' + id, httpOptions))
 
   }
 }

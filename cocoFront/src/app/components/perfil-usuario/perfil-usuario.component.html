@@ -159,10 +159,38 @@
                             </div>
                         </article>
 
+
                         <article *ngIf="profileTab==='productos'">
+                            <!-- nuevo producto modal y button -->
                             <div class="flex m-4">
-                                <button class="btn btn-secondary addProducto">Nuevo Producto</button>
+                                <button type="button" class="btn btn-secondary addProducto" data-bs-toggle="modal"
+                                    data-bs-target="#nuevoProductoModal">
+                                    Nuevo Producto
+                                </button>
                             </div>
+
+
+                            <div class="modal fade" id="nuevoProductoModal" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <app-nuevo-producto></app-nuevo-producto>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="row g-4 p-4">
                                 <div class="product-card col-12 col-md-6 col-lg-4"
                                     *ngFor="let producto of misProductos">
@@ -180,7 +208,33 @@
                                             </ul>
                                             <h6>Descripcion:</h6>
                                             <p>{{producto.descripcion}}</p>
-                                            <button id="prodBtn" class="btn btn-success mt-3">Editar</button>
+                                            <!-- editar producto modal y button -->
+                                            <div class="m-4 hstack">
+                                                <button type="button" class="ms-auto btn btn-success mt-3"
+                                                    *ngIf="botonesOn" id="prodBtn" data-bs-toggle="modal"
+                                                    data-bs-target="#editarProductoModal">
+                                                    Editar
+                                                </button>
+                                            </div>
+                                            <div class="modal fade" id="editarProductoModal" data-bs-backdrop="static"
+                                                data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-xl modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <app-nuevo-producto></app-nuevo-producto>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cerrar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
