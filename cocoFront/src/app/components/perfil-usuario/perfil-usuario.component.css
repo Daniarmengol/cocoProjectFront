@@ -212,10 +212,14 @@ agm-map {
     }
 }
 /* INICIO--PERFIL/PRODUCTOS-- */
+
+
+
 #prodBtn{
     position: absolute;
-    right: -100%;
+    right: 0px;
     top: 540px;
+    opacity: 0;
 }
 
 .card-img-top{
@@ -263,8 +267,9 @@ agm-map {
 }
 
 .product-card:hover #prodBtn{
+   right: 40px;
     top: 540px;
-    right: 40px;
+    opacity: 1;
     transition: 0.3s;
 }
 
@@ -272,10 +277,6 @@ ul{
     padding: 0;
 }
 
-/* .addProducto{
-    margin: 0;
-}
- */
 .flex{
     display: flex;
     justify-content: flex-start;

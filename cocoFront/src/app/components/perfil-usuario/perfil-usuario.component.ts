@@ -24,8 +24,11 @@ export class PerfilUsuarioComponent implements OnInit {
     types: [],
     componentRestrictions: { country: 'ES' }
   };
+
   /* MIS PRODUCTOS */
   misProductos: Producto[] | any = [];
+  checkUser: User | any;
+  botonesOn: boolean = false;
 
 
   user: Observable<User[]> | any;
@@ -56,6 +59,8 @@ export class PerfilUsuarioComponent implements OnInit {
       this.userAntiguedad = dayjs().diff(dayjs(this.user.fecha_registro), 'days')
       this.userLocation = await this.mapsService.getLocationByUserAddress(params.userId)
       /* MIS PRODUCTOS */
+      this.checkUser = await this.usersService.getUserByToken();
+      (this.user.id === this.checkUser.id) ? this.botonesOn = true : this.botonesOn = false;
       this.misProductos = await this.usersService.getProductosByUser(params.userId)
       console.log(this.misProductos)
       if (this.userLocation.results) {
@@ -69,9 +74,8 @@ export class PerfilUsuarioComponent implements OnInit {
 
     });
 
-
-
   };
+
 
   cargarArticle(article: string): void {
     this.profileTab = article;
