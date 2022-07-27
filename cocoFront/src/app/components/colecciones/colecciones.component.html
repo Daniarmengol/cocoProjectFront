@@ -18,8 +18,8 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let colecciones of coleccion;">
-                    <app-collection-card></app-collection-card>
+                <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let coleccion of colecciones;">
+                    <app-collection-card [coleccion]="coleccion"></app-collection-card>
                 </div>
             </div>
 

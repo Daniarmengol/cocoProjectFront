@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Producto } from 'src/app/interfaces/producto.interface';
+import { ColeccionesService } from 'src/app/services/colecciones.service';
 import { ProductosService } from 'src/app/services/productos.service';
 
 @Component({
@@ -8,13 +11,30 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class UserColeccionViewComponent implements OnInit {
 
-  productos: any[] = [];
+  productosColeccion: Producto[] = []
+  productos: Producto[] = []
+
 
   constructor(
-    private productosServices: ProductosService
+    private _productosServices: ProductosService,
+    private _coleccionesServices: ColeccionesService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params.subscribe(async (params: any) => {
+      this.productosColeccion = await this._coleccionesServices.getByCodigo(params.codigo)
+      /*  this.productos = this.productosColeccion.map(async () => {
+         await this._productosServices.getById()
+       }) */
+
+      console.log(this.productosColeccion)
+
+    })
+
   }
+
+
 
 }

@@ -1,22 +1,42 @@
 <div class="container">
-    <div class="row">
-        <article *ngFor="let producto of productos" class="col-12 col-md-6 col-lg-4">
-            <div class="card rounded-3">
-                <div class="img card-img-top" [ngStyle]="{'background-image': 'url(' + producto.imagen + ')'}">
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{producto.nombre}}</h5>
-                    <div id="usuario_info" class="p-1">
-                        <p class="mb-2">{{producto.username}}</p>
-                        <p>Rating:*****</p>
-                        <div id="trusted_icon" *ngIf="producto.trusted!==0"><i class="fa-solid fa-star"></i></div>
+
+    <section class="header">
+        <div>
+
+            <h1>nombre de la coleccion</h1>
+
+        </div>
+    </section>
+    <section class="listaProductos">
+
+        <div class="row">
+            <div id="productos" class="row g-4">
+                <article class="col-12 col-md-6 col-lg-4" *ngFor="let producto of productosColeccion">
+                    <div class="card rounded-3">
+                        <div class="img card-img-top" [ngStyle]="{'background-image': 'url(' + producto?.imagen + ')'}">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{producto?.nombre}}</h5>
+                            <div id="producto_info" class="p-1">
+
+                            </div>
+                            <p class="mt-2 mb-2">Precio: {{producto?.precio}}€</p>
+                            <p>Estado: {{producto?.estado | titlecase}}</p>
+                            <div class="">
+
+                            </div>
+                            <button [routerLink]="['/producto', producto?.id]" id="prodBtn"
+                                class="btn btn-success mt-3">Ir
+                                al producto</button>
+                        </div>
                     </div>
-                    <p class="mt-2 mb-2">Precio: {{producto.precio}}€</p>
-                    <p>Estado: {{producto.estado | titlecase}}</p>
-                    <button [routerLink]="['/producto', producto.id]" class="btn btn-success mt-3">Ir al
-                        producto</button>
-                </div>
+                </article>
+
             </div>
-        </article>
-    </div>
+
+        </div>
+
+
+    </section>
+
 </div>

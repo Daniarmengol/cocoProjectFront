@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'colecciones', component: ColeccionesComponent, canActivate: [LoginGuard] },
   { path: 'producto/:id', component: ProductoViewComponent, canActivate: [LoginGuard] },
   { path: 'colecciones/:idusuario', component: ColeccionViewComponent, canActivate: [LoginGuard] },
-  { path: 'colecciones/:idusuario/:idcolecciones', component: UserColeccionViewComponent, canActivate: [LoginGuard] },
+  { path: 'colecciones/:idusuario/:codigo', component: UserColeccionViewComponent, canActivate: [LoginGuard] },
   {
     path: 'perfil/:userId', component: PerfilUsuarioComponent, canActivate: [LoginGuard], children: [
       { path: 'nuevo-producto', component: NuevoProductoComponent }
