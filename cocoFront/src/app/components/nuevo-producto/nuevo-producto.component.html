@@ -1,6 +1,8 @@
 <section>
-    <form class="m-auto mb-5 pb-5 rounded-3" novalidate [formGroup]="productoForm" (ngSubmit)="getDataForm()">
+    <form class="m-auto mb-5 pb-5 rounded-3" novalidate [formGroup]="productoForm"
+        (ngSubmit)="getDataForm(productoForm)">
         <h2 class="mt-1">Nuevo Producto</h2>
+        <input formControlName="usuario_id" id="usuario_id" type="text" [value]="myId">
         <div class="form-floating">
             <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="nombre">
             <label for="nombre">Nombre</label>

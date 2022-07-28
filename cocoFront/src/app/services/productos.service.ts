@@ -55,4 +55,13 @@ export class ProductosService {
 
   }
 
+  addProducto(formValue: any): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+
+    }
+    return lastValueFrom(this.httpClient.post<any>(this.baseUrl + '/nuevo', formValue, httpOptions))
+  }
 }

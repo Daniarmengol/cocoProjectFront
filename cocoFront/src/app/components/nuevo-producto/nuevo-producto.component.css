@@ -1,6 +1,4 @@
-
-
-h2{
+h2 {
     text-align: center;
     margin-bottom: 1em;
     color: whitesmoke;
@@ -9,17 +7,20 @@ h2{
     border-radius: 5px 5px 0 0;
 }
 
-form{
+form {
     width: 80%;
-   background-color: whitesmoke;
-   /* border: 1px solid gainsboro; */
-   box-shadow: 0px 5px 12px grey;
-   
+    background-color: whitesmoke;
+    /* border: 1px solid gainsboro; */
+    box-shadow: 0px 5px 12px grey;
+
 }
 
-.form-floating,p{
+#id {
+    display: none;
+}
+
+.form-floating,
+p {
     width: 80%;
     margin: 0 auto;
 }
-
-
