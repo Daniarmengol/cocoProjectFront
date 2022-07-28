@@ -1,19 +1,26 @@
 .img-resize {
     height: auto;
     width: 65px;
+    transition: 1s;
+
+}
+
+.img-resize:hover {
+    rotate: 180deg;
 }
 
 .navbar {
-	position: fixed;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	padding-top: 0;
-	padding-bottom: 0;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.dropdown-item2 {
+
+.nav .dropdown-item2 {
     display: block;
     width: 100%;
     padding: .25rem 1rem;

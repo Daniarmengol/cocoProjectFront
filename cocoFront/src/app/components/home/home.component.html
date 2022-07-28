@@ -1,4 +1,4 @@
-<div id="hero" class="mb-5">
+<div id="hero" class="">
     <div class="container">
         <section class="hero row">
             <div class="hero_left col-12 col-lg-5">
@@ -32,7 +32,7 @@
                                             <img [src]="user.avatar" alt="">
                                         </div>
                                         <div class="card_text_left">
-                                            <span><strong>123456789012345</strong></span><span>by
+                                            <span><strong>{{user.nombre}} {{user.apellidos}}</strong></span><span>by
                                                 <strong>{{user.username}}</strong></span>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                     </ul>
                 </div>
                 <div class="banner_button pe-4">
-                    <button class="btn btn-primary" [routerLink]="['/login']">Descubre</button>
+                    <button class="btn btn-primary" [routerLink]="['/colecciones']">Descubre</button>
                 </div>
             </div>
         </article>
@@ -71,10 +71,11 @@
 
 
 
-<div>
+<!-- <div>
     <div>
         <hr class="w-50 mx-auto mt-2">
         <h2 class="text-center my-4">Aquí tienes algunos de nuestros productos</h2>
+        
         <hr class="w-50 mx-auto mb-2">
     </div>
-</div>
+</div> -->

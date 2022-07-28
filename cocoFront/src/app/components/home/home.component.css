@@ -1,5 +1,5 @@
 #hero {
-    background: linear-gradient(rgba(40, 233, 137, 0.803),rgba(182, 149, 18, 0.638));
+    background: linear-gradient(rgba(40, 233, 137, 0.803), rgba(182, 149, 18, 0.638));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -7,8 +7,9 @@
 }
 
 figure {
-	margin: 0;
+    margin: 0;
 }
+
 
 h2 {
     font-weight: 700;
@@ -24,21 +25,21 @@ h4 {
     justify-content: center;
     align-items: center;
     padding-top: 100px;
-    margin: 0 20px;
+    margin: 0
 }
 
 .card {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-width: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
     max-width: 500px;
     margin: 0 auto;
-	word-wrap: break-word;
-	background-color: #fff;
-	background-clip: border-box;
-	border: 0;
-	border-radius: 10px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0;
+    border-radius: 10px;
 }
 
 .card a {
@@ -72,8 +73,8 @@ h4 {
 }
 
 .card-img, .card-img-top {
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .hero_right_card article .card div .card_collection_img {
@@ -139,16 +140,20 @@ h4 {
 }
 
 .banner>div {
-    background-image: url('../../../assets/ilustracion-coco-login.webp');
+    background-image: url('../../../assets/bg_banner_home.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center right;
 }
 
 
 .banner_text ul {
     font-size: 16px;
     font-weight: 700;
+    color: rgb(16, 17, 73);
+    background-color: rgb(228, 211, 211);
+    padding: 15px;
+    border-radius: 30px;
 }
 
 .banner_button button {
