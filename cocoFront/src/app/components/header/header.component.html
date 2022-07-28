@@ -22,15 +22,17 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id]">Mi Perfil</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id, 'colecciones']">Mis
-                                Colecciones</a></li>
                         <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id, 'nuevo-producto']">Nuevo
                                 Producto</a></li>
                         <li><a class="dropdown-item" [routerLink]="['/perfil', user?.id, 'nueva-coleccion']">Nueva
                                 Colección</a></li>
-                        <li class="dropdown-divider">
+                        <li class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item2" (click)="logout()">
+                                Logout
+                                <i class="ms-5 fa-solid fa-right-from-bracket"></i>
+                            </a>
                         </li>
-                        <li><a class="dropdown-item2" (click)="logout()">Logout</a></li>
                     </ul>
                 </li>
 
@@ -51,50 +53,3 @@
         </div>
     </div>
 </nav>
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-2 border-danger">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/home">
-            <img class="img-resize" src="../../../assets/ilustracion-coco-login.webp">
-        </a>
-        <div>
-            <h2 class="text-success text-decoration-underline">CoCo App</h2>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Productos</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Colecciones</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                        data-bs-toggle="dropdown">
-                        Perfil
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Mis Colecciones</a></li>
-                        <li><a class="dropdown-item" href="#">Nuevo Producto</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-        </div>
-    </div>
-</nav> -->
