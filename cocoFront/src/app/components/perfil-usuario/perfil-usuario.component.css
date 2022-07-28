@@ -53,10 +53,13 @@ article {
     padding: 5px;
 }
 
+.info_top {
+    padding-top: 25px
+}
 
 .info_top .circle {
-    height: 120px;
-    width: 120px;
+    height: 320px;
+    width: 320px;
     border-radius: 50%;
     border: 10px solid var(--colorPrimario);
 }
@@ -64,8 +67,8 @@ article {
 .circle>div {
     position: relative;
     border-radius: 50%;
-    height: 94px;
-    width: 94px;
+    height: 294px;
+    width: 294px;
     margin-top: 3px;
     margin-left: 3px;
 }

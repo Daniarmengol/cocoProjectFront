@@ -9,4 +9,5 @@ export interface User {
     fecha_nacimiento: Date;
     avatar: string;
     rating: number;
+    discord: string;
 }

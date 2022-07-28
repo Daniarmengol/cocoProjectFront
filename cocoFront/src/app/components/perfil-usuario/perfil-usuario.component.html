@@ -9,7 +9,7 @@
 
         <div class="user_info">
             <section class="info_box bg-light">
-                <div class="perfil_img d-flex flex-column pt-3">
+                <!-- <div class="perfil_img d-flex flex-column pt-3">
                     <div class="text-center my-2">
                         <h3>{{user?.username}}</h3>
                     </div>
@@ -21,9 +21,9 @@
                             Colecciones de {{user?.username}}
                         </button>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="d-none d-lg-block user_actions_dropdown">
+                <div class="d-none d-lg-none user_actions_dropdown">
                     <div>
                         <button class="btn btn-success ms-3" type="button" data-bs-toggle="collapse"
                             data-bs-target="#menu_collapse">
@@ -49,7 +49,7 @@
 
                 </div>
 
-                <div class="d-block d-lg-none user_actions_dropdown">
+                <div class="d-none d-lg-none user_actions_dropdown">
                     <div>
                         <button class="btn btn-success ms-3" type="button" data-bs-toggle="collapse"
                             data-bs-target="#menu_collapse">
@@ -82,19 +82,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="info_text text-center my-4">
+                    <!-- <div class="info_text text-center my-4">
                         <p>
                             <strong>98%</strong>
                             de valoraciones positivas.
                         </p>
-                    </div>
-                    <div class="rating_text">
+                    </div> -->
+                    <div class="rating_text mt-3">
                         <ul class="d-flex justify-content-between">
                             <li class="positive">
                                 <span>{{user?.rating}} Puntos <i class="fa-solid fa-star"></i></span>
                             </li>
                         </ul>
-                        <p class="text-muted small ps-3">* Valoraciones recibidas en los últimos 6 meses.
+                        <p class="text-muted text-center small ps-3">* Valoraciones recibidas en los últimos 6 meses.
                         </p>
                     </div>
                 </div>
@@ -110,10 +110,10 @@
                                 (click)="cargarArticle('productos')">
                                 Productos
                             </li>
-                            <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'colecciones'}"
+                            <!-- <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'colecciones'}"
                                 (click)="cargarArticle('colecciones')">
                                 Colecciones
-                            </li>
+                            </li> -->
 
                         </ul>
                     </nav>
@@ -131,6 +131,10 @@
                                     <span>{{user?.email}}</span>
                                 </div>
                                 <div class="my-3 ps-3">
+                                    <strong>Discord:</strong>
+                                    <span><i class="fa-brands fa-discord"></i> {{user?.discord}} </span>
+                                </div>
+                                <div class="my-3 ps-3">
                                     <strong>Fecha de nacimiento:</strong>
                                     <span>{{user?.fecha_nacimiento | date:'dd MMMM YYYY'}} - {{userEdad}} años</span>
                                 </div>
@@ -141,9 +145,7 @@
                                 </div>
                                 <div class="my-3 ps-3">
                                     <strong>Última conexión:</strong>
-                                    <span class="text-muted">Menos de 24 horas</span>
                                     <span class="text-success">Online</span>
-                                    <span class="text-danger">Más de 1 semana</span>
                                 </div>
 
                                 <div class="my-3">
