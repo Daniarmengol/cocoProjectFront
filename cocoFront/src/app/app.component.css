@@ -7,3 +7,9 @@
     color: white;
     background-color: var(--colorPrimario);
 }
+
+.btn-success {
+    color: white;
+    background-color: var(--colorPrimario);
+    border-color: var(--colorPrimario);
+}
