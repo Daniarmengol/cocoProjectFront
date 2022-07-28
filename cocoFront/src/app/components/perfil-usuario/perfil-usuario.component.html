@@ -204,20 +204,25 @@
                                             <h5 class="card-title">{{producto.nombre}}</h5>
                                             <ul class="prod_caracteristicas mt-3 mb-3">
                                                 <li>Precio: {{producto.precio}}€</li>
-                                                <li>Categoria: {{producto.categoria}}</li>
                                                 <li>Marca: {{producto.marca}}</li>
+                                                <li>Categoria: {{producto.categoria}}</li>
                                                 <li>Estado: {{producto.estado}}</li>
                                             </ul>
                                             <h6>Descripcion:</h6>
                                             <p>{{producto.descripcion}}</p>
-                                            <!-- editar producto modal y button -->
-                                            <div class="m-4 hstack">
-                                                <button type="button" class="ms-auto btn btn-success mt-3"
-                                                    *ngIf="botonesOn" id="prodBtn" data-bs-toggle="modal"
-                                                    data-bs-target="#editarProductoModal">
+                                            <div class="botonera mt-3 d-flex flex-column justify-content-around"
+                                                *ngIf="botonesOn">
+                                                <button type="button" class="btn btn-success mb-2" id="editBtn"
+                                                    data-bs-toggle="modal" data-bs-target="#editarProductoModal">
                                                     Editar
                                                 </button>
+
+                                                <button type="button" class="btn btn-success" id="coleccionBtn"
+                                                    data-bs-toggle="modal" data-bs-target="#editarProductoModal">
+                                                    Añadir a colección
+                                                </button>
                                             </div>
+                                            <!-- editar producto modal-->
                                             <div class="modal fade" id="editarProductoModal" data-bs-backdrop="static"
                                                 data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
