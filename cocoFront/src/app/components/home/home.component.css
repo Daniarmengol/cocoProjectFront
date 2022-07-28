@@ -1,9 +1,26 @@
 #hero {
-    background: linear-gradient(rgba(40, 233, 137, 0.803), rgba(182, 149, 18, 0.638));
+    background: linear-gradient(rgba(131, 219, 175, 0.803), rgba(182, 149, 18, 0.638));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     height: 850px;
+}
+
+.btn-outline-success {
+    color: var(--colorPrimario);
+    border-color: var(--colorPrimario);
+}
+
+.btn-outline-success:hover {
+    color: white;
+    background-color: var(--colorPrimario);
+}
+
+.btn-success {
+    color: white;
+    background-color: rgb(77, 162, 107);
+    border-color: transparent;
+    transition: 300ms ease-in-out;
 }
 
 figure {

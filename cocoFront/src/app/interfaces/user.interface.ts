@@ -8,4 +8,5 @@ export interface User {
     apellidos: string;
     fecha_nacimiento: Date;
     avatar: string;
+    rating: number;
 }
