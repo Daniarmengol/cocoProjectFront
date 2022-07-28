@@ -9,6 +9,8 @@
 
 .img-resize {
     height: auto;
-    width: 80px;
+    max-width: 80px;
+    display: block;
+    margin: 0 auto;
 
 }
