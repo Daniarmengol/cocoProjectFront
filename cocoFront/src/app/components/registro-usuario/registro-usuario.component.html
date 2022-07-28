@@ -120,9 +120,10 @@
 
             </div>
 
-            <div class=" botonera">
-                <input type="reset" name="limpiar" id="limpiar" value="Limpiar campos">
-                <input type="submit" id="enviar" value="Completar registro" [disabled]="!registerForm.valid">
+            <div class=" botonera d-flex justify-content-around">
+                <input class="btn btn-success px-5" type="reset" name="limpiar" id="limpiar" value="Limpiar campos">
+                <input class="btn btn-success px-5" type="submit" id="enviar" value="Completar registro"
+                    [disabled]="!registerForm.valid">
             </div>
 
         </form>
