@@ -1,39 +1,43 @@
  .primigenio {
      background-color: linear-gradient(60deg, var(--colorPrimario), 0%);
-     margin-top: 75px;
+     /* margin-top: 75px; */
+ }
 
+ #hero {
+     background: url(https://www.madridiario.es/fotos/1/137426_macchinine_tienda_coleccionismo_miniaturas_coches23_kr_thumb_722.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     height: 100vh;
+ }
+
+ .hero_text {
+    margin-top: 250px;
+    font-weight: 700;
  }
 
  .banner-top {
-
      padding-top: 30px;
  }
 
-
  .container {
      display: block;
-
  }
 
  .pos-rel {
-
      color: var(--colorSecundario);
      padding: 20px;
-     background: radial-gradient(circle, rgba(148, 104, 70, 1) 53%, rgba(157, 143, 104, 1) 75%, rgba(165, 175, 131, 1) 89%, rgba(171, 199, 152, 1) 100%);
-     ;
      border-radius: 5px;
-     /* box-shadow: 4px 2px 1px inset rgba(170, 100, 100, 0.781) */
-     ;
      text-align: center;
-
  }
 
  .block-imagen {
-     background-image: url(../../../assets/coleccionables-660x380.jpg);
-     width: 95%;
-     height: 150px;
-     margin-left: 2.5%;
-     margin-top: 4%;
+     background-image: url(https://www.madridiario.es/fotos/1/137426_macchinine_tienda_coleccionismo_miniaturas_coches23_kr_thumb_722.jpg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-size: cover;
+     width: 100%;
+     height: 400px;
  }
 
  /* pruebas con section cards */

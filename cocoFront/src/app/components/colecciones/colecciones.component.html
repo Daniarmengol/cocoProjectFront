@@ -1,31 +1,25 @@
+<div id="hero">
+    <div class="pos-rel">
+        <div class="hero_text block-text bg-dark rounded-pill bg-opacity-50 text-white p-3">
+            <h1>¡Últimas colecciones!</h1>
+            <h2>¡Descubre aquí las ultimas colecciones
+                <br>
+                subidas por nuestros usuarios!
+            </h2>
+        </div>
+    </div>
+</div>
 <div class="primigenio">
     <section class="banner-top">
-        <div class="container">
-            <div class="pos-rel">
-                <div class="block-text">
-                    <h1>¡ Ultimas colecciones !</h1>
-                    <h2>¡descubre aquí las ultimas colecciones subidas por nuestros usuarios!</h2>
-                </div>
-                <div class="block-imagen">
-
-                </div>
-            </div>
-        </div>
+        <div class="container"></div>
     </section>
     <section class="wrapper">
-
-
         <div class="container">
-
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let coleccion of colecciones;">
                     <app-collection-card [coleccion]="coleccion"></app-collection-card>
                 </div>
             </div>
-
         </div>
-
-
     </section>
-
 </div>
