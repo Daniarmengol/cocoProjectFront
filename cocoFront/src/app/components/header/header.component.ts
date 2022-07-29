@@ -28,4 +28,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  navigate() {
+    this.router.navigate(['/perfil', this.user.id], { queryParams: { profileTab: 'productos' } })
+  }
+
 }
+

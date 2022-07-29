@@ -53,6 +53,11 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // this.activatedRoute.queryParams.subscribe((params) => {
+    //   // console.log(params);
+    //   this.profileTab = params['profileTab']
+    // })
+
     this.activatedRoute.params.subscribe(async (params: any) => {
       this.user = await this.usersService.getById(params.userId);
       // this.userAgeCalc(this.user.fecha_nacimiento)
