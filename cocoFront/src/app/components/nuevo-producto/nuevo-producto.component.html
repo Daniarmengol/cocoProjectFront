@@ -2,7 +2,7 @@
     <form class="m-auto mb-5 pb-5 rounded-3" novalidate [formGroup]="productoForm"
         (ngSubmit)="getDataForm(productoForm)">
         <h2 class="mt-1">Nuevo Producto</h2>
-        <input formControlName="usuario_id" id="usuario_id" type="text" [value]="myId">
+        <input formControlName="usuario_id" id="usuario_id" type="number">
         <div class="form-floating">
             <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="nombre">
             <label for="nombre">Nombre</label>
@@ -45,8 +45,8 @@
             <label for="estado">Estado</label>
         </div>
         <div class="form-floating mt-3">
-            <textarea class="form-control" placeholder="Caracteristicas del producto" id="descripcion"
-                style="height: 100px"></textarea>
+            <textarea class="form-control" formControlName="descripcion" placeholder="Caracteristicas del producto"
+                id="descripcion" style="height: 100px"></textarea>
             <label for="descripcion">Descripcion</label>
         </div>
 

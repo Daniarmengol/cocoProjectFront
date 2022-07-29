@@ -47,7 +47,8 @@ export class PerfilUsuarioComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private activatedRoute: ActivatedRoute,
-    private mapsService: MapsService
+    private mapsService: MapsService,
+    private productosService: ProductosService
   ) { }
 
 
@@ -79,6 +80,10 @@ export class PerfilUsuarioComponent implements OnInit {
 
   cargarArticle(article: string): void {
     this.profileTab = article;
+  }
+
+  async eliminarProd(id: number) {
+    await this.productosService.eliminarProd(id)
   }
 
   // userAgeCalc(userAge: string): number {

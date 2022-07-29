@@ -49,16 +49,14 @@
                         </div>
                         <ul id="user_info" class="d-flex justify-content-center align-content-center flex-column">
                             <li>{{miProducto.username}}</li>
-                            <li>Rating: puntuacion</li>
-                            <li>Miembro desde: fecha</li>
+                            <li>Rating: {{miProducto.rating}}</li>
+                            <li>Miembro desde: {{miProducto.fecha_inscripcion}}</li>
                         </ul>
 
                     </div>
                 </div>
-                <div class="botonera d-flex justify-content-around">
+                <div class="botonera">
                     <button [routerLink]="['/productos']" class="btn btn-success carrito">Volver</button>
-                    <button class="btn btn-success carrito">Añadir al carrito</button>
-
                 </div>
             </div>
         </article>

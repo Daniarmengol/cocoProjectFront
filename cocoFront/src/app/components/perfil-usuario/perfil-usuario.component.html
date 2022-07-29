@@ -143,10 +143,10 @@
                                     <span>{{user?.fecha_registro | date: 'dd MMMM YYYY'}} - {{userAntiguedad}}
                                         días</span>
                                 </div>
-                                <div class="my-3 ps-3">
+                                <!-- <div class="my-3 ps-3">
                                     <strong>Última conexión:</strong>
                                     <span class="text-success">Online</span>
-                                </div>
+                                </div> -->
 
                                 <div class="my-3">
                                     <strong class="ps-3">Ubicación:</strong>
@@ -167,8 +167,8 @@
                         <article *ngIf="profileTab==='productos'">
                             <!-- nuevo producto modal y button -->
                             <div class="flex m-4">
-                                <button type="button" class="btn btn-secondary addProducto" data-bs-toggle="modal"
-                                    data-bs-target="#nuevoProductoModal">
+                                <button type="button" *ngIf="botonesOn" class="btn btn-secondary addProducto"
+                                    data-bs-toggle="modal" data-bs-target="#nuevoProductoModal">
                                     Nuevo Producto
                                 </button>
                             </div>
@@ -205,12 +205,16 @@
                                         <div class="card-body">
                                             <h5 class="card-title">{{producto.nombre}}</h5>
                                             <ul class="prod_caracteristicas mt-3 mb-3">
-                                                <li>Precio: {{producto.precio}}€</li>
-                                                <li>Marca: {{producto.marca}}</li>
-                                                <li>Categoria: {{producto.categoria}}</li>
-                                                <li>Estado: {{producto.estado}}</li>
+                                                <li *ngIf="producto.precio !== null"><strong>Precio:</strong>
+                                                    {{producto.precio}}€</li>
+                                                <li *ngIf="producto.marca !== null"><strong>Marca:</strong>
+                                                    {{producto.marca}}</li>
+                                                <li *ngIf="producto.categoria !== null"><strong>Categoria:</strong>
+                                                    {{producto.categoria}}</li>
+                                                <li *ngIf="producto.estado !== null"><strong>Estado:</strong>
+                                                    {{producto.estado | titlecase}}</li>
                                             </ul>
-                                            <h6>Descripcion:</h6>
+                                            <h6> <strong>Descripcion:</strong></h6>
                                             <p>{{producto.descripcion}}</p>
                                             <div class="botonera mt-3 d-flex flex-column justify-content-around"
                                                 *ngIf="botonesOn">
@@ -218,10 +222,9 @@
                                                     data-bs-toggle="modal" data-bs-target="#editarProductoModal">
                                                     Editar
                                                 </button>
-
-                                                <button type="button" class="btn btn-success" id="coleccionBtn"
-                                                    data-bs-toggle="modal" data-bs-target="#editarProductoModal">
-                                                    Añadir a colección
+                                                <button type="button" (click)="eliminarProd(producto.id)"
+                                                    class="btn btn-danger mb-2" id="delete">
+                                                    Eliminar
                                                 </button>
                                             </div>
                                             <!-- editar producto modal-->

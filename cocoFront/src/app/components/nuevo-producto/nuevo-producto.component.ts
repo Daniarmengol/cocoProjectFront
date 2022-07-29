@@ -18,13 +18,9 @@ export class NuevoProductoComponent implements OnInit {
     private usersService: UsersService
   ) {
 
-
-
     this.productoForm = new FormGroup({
-      usuario_id: new FormControl(this.myId, []),
-      nombre: new FormControl('', [
-        Validators.required
-      ]),
+      usuario_id: new FormControl(),
+      nombre: new FormControl('', []),
       precio: new FormControl('', []),
       categoria: new FormControl('', [
         Validators.required
@@ -34,15 +30,22 @@ export class NuevoProductoComponent implements OnInit {
       estado: new FormControl('', [
         Validators.required
       ]),
-      descripcion: new FormControl('', [
-        Validators.required
-      ])
+      descripcion: new FormControl('', [])
     })
   }
 
+  // ngOnInit(): void {
+
+
+
+  // }
+
   async ngOnInit(): Promise<void> {
     const myUser = await this.usersService.getUserByToken()
-    this.myId = myUser.id
+    // console.log(myUser)
+    this.productoForm.patchValue({
+      usuario_id: myUser.id
+    })
   }
 
   async getDataForm(productoForm: any) {
@@ -51,15 +54,28 @@ export class NuevoProductoComponent implements OnInit {
       console.log(response);
       const msg = (response.success) ? response.success : response.error;
       // alert(msg); // sweet alerts usuario duplicado
-      Swal.fire({
-        title: 'Ha habido un error!',
-        icon: 'error',
-        text: msg,
-        timer: 3000
-      })
+      if (response.error) {
+        Swal.fire({
+          title: 'Ha habido un error!',
+          icon: 'error',
+          text: 'Revisa que todo esté correcto y vuelve a intentarlo.',
+          timer: 5000
+        })
+      } else {
+        Swal.fire({
+          title: 'Producto añadido!',
+          icon: 'success',
+          text: 'Producto creado satisfactoriamente.',
+          timer: 5000
+        })
+
+      }
+
     } catch (error) {
       console.log(error)
     }
 
   }
+
+
 }

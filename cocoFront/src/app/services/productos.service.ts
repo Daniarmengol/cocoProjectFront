@@ -64,4 +64,15 @@ export class ProductosService {
     }
     return lastValueFrom(this.httpClient.post<any>(this.baseUrl + '/nuevo', formValue, httpOptions))
   }
+
+  eliminarProd(id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+
+    }
+    return lastValueFrom(this.httpClient.delete<any>(this.baseUrl + /eliminar/ + id, httpOptions))
+  }
+
 }
