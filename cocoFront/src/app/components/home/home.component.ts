@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class HomeComponent implements OnInit {
 
   userShowcase: User[] = [];
+  user: User | any;
 
   constructor(
     private usersService: UsersService
@@ -17,5 +18,6 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.userShowcase = await this.usersService.getRandomTrusted()
+    this.user = await this.usersService.getUserByToken()
   }
 }

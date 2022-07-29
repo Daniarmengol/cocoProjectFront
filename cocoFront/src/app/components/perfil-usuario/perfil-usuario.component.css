@@ -229,7 +229,7 @@ agm-map {
 .botonera {
     position: absolute;
     right: 0px;
-    top: 500px;
+    top: 480px;
     opacity: 0;
 }
 
@@ -279,7 +279,7 @@ agm-map {
 
 .product-card:hover .botonera {
     right: 40px;
-    top: 500px;
+    top: 480px;
     opacity: 1;
     transition: 0.3s;
 }

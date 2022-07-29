@@ -1,7 +1,7 @@
 <section>
     <form class="m-auto mb-5 pb-5 rounded-3" novalidate [formGroup]="productoForm"
         (ngSubmit)="getDataForm(productoForm)">
-        <h2 class="mt-1">Nuevo Producto</h2>
+        <h2 class="mt-1">Cuéntanos sobre tu producto</h2>
         <input formControlName="usuario_id" id="usuario_id" type="number">
         <div class="form-floating">
             <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="nombre">
@@ -26,7 +26,8 @@
             </select>
             <label for="floatingSelect">Categoria</label>
         </div>
-        <p class="mt-3 mb-1">Debes subir la imagen en formato url para que sea representada correctamente</p>
+        <p class="mt-3 mb-1">Debes subir la imagen en formato url para que sea representada correctamente. Si no sabes
+            como hacerlo visita <a href="https://imgur.com/upload">Imgur</a></p>
         <div class="form-floating">
             <input type="text" class="form-control" formControlName="imagen" id="imagen" placeholder="Imagen">
             <label for="imagen">Imagen</label>
