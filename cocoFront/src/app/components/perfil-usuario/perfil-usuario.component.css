@@ -9,6 +9,10 @@
     border-color: #dee2e6 #dee2e6 #fff;
 }
 
+.breadcrumb-item.active {
+	color: black;
+}
+
 .container,
 .container-fluid,
 .container-lg,

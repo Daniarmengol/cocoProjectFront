@@ -13,10 +13,10 @@ import Swal from 'sweetalert2';
 })
 export class UserEditBioFormComponent implements OnInit {
 
-  // @ViewChild('avatarcillo')
 
   userBioForm: FormGroup | any;
   user: Observable<User[]> | any;
+  avatarcillo: string = '';
 
   constructor(
     private usersService: UsersService,
@@ -40,6 +40,7 @@ export class UserEditBioFormComponent implements OnInit {
     this.activatedRoute.params.subscribe(async (params: any) => {
 
       this.user = await this.usersService.getById(params.userId);
+      this.avatarcillo = this.user.avatar;
 
       this.userBioForm.patchValue({
         nombre: this.user.nombre,
@@ -81,6 +82,12 @@ export class UserEditBioFormComponent implements OnInit {
       console.log(err);
 
     }
+  }
+
+  loadAvatar(avatar: any) {
+    console.log(avatar);
+
+    this.avatarcillo = avatar.target.value;
   }
 
 }

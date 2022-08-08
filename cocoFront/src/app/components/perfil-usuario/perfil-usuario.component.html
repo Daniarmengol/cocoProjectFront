@@ -3,12 +3,18 @@
         <nav style="--bs-breadcrumb-divider:'>'">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+                <li class="breadcrumb-item">></li>
                 <li class="breadcrumb-item active">Perfil de {{user?.username}}</li>
             </ol>
         </nav>
 
         <div class="user_info">
             <section class="info_box bg-light">
+
+                <div class="text-center">
+                    <h2 class="pt-5 fs-1">Perfil de {{user?.username}}</h2>
+                </div>
+
                 <!-- <div class="perfil_img d-flex flex-column pt-3">
                     <div class="text-center my-2">
                         <h3>{{user?.username}}</h3>
@@ -122,9 +128,9 @@
                         <article *ngIf="profileTab === 'informacion'">
 
                             <div *ngIf="botonesOn">
-                                <button class="btn btn-primary w-25 mx-5 mt-3" type="button"
+                                <button class="btn btn-success w-25 mx-5 mt-3" type="button"
                                     [routerLink]="['/perfil', user?.id, 'edit', 'bio']">
-                                    Editar info
+                                    Editar datos
                                 </button>
                                 <!-- <button class="btn btn-primary w-25 mx-5 mt-3" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseExample">
@@ -218,10 +224,11 @@
 
                         <article *ngIf="profileTab==='productos'">
                             <!-- nuevo producto modal y button -->
-                            <div class="flex m-4">
-                                <button type="button" *ngIf="botonesOn" class="btn btn-secondary addProducto"
-                                    data-bs-toggle="modal" data-bs-target="#nuevoProductoModal">
-                                    Nuevo Producto
+                            <div class="flex">
+                                <button type="button" *ngIf="botonesOn"
+                                    class="btn btn-success w-25 mx-5 mt-3 addProducto" data-bs-toggle="modal"
+                                    data-bs-target="#nuevoProductoModal">
+                                    Nuevo producto
                                 </button>
                             </div>
 
