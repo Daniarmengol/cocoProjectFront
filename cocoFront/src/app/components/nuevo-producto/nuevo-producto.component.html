@@ -1,8 +1,8 @@
 <section>
     <form class="m-auto mb-5 pb-5 rounded-3" novalidate [formGroup]="productoForm"
         (ngSubmit)="getDataForm(productoForm)">
-        <h2 class="mt-1">Nuevo Producto</h2>
-        <input formControlName="usuario_id" id="usuario_id" type="text" [value]="myId">
+        <h2 class="mt-1">Cuéntanos sobre tu producto</h2>
+        <input formControlName="usuario_id" id="usuario_id" type="number">
         <div class="form-floating">
             <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="nombre">
             <label for="nombre">Nombre</label>
@@ -26,10 +26,10 @@
             </select>
             <label for="floatingSelect">Categoria</label>
         </div>
-        <p class="mt-3 mb-1">Debes subir la imagen en formato url para que sea representada correctamente</p>
+
         <div class="form-floating">
-            <input type="text" class="form-control" formControlName="imagen" id="imagen" placeholder="Imagen">
-            <label for="imagen">Imagen</label>
+            <input type="text" class="form-control mt-3 mb-1" formControlName="imagen" id="imagen" placeholder="Imagen">
+            <label for="imagen">Imagen (URL)</label>
         </div>
         <div class="form-floating mt-3 mb-3">
             <input type="text" class="form-control" formControlName="marca" id="marca" placeholder="Marca">
@@ -45,14 +45,14 @@
             <label for="estado">Estado</label>
         </div>
         <div class="form-floating mt-3">
-            <textarea class="form-control" placeholder="Caracteristicas del producto" id="descripcion"
-                style="height: 100px"></textarea>
+            <textarea class="form-control" formControlName="descripcion" placeholder="Caracteristicas del producto"
+                id="descripcion" style="height: 100px"></textarea>
             <label for="descripcion">Descripcion</label>
         </div>
 
         <div class="d-flex justify-content-around mt-5">
-            <input class="btn btn-secondary" type="reset" value="Limpiar campos">
-            <input class="btn btn-secondary" type="submit" id="enviar" value="Enviar">
+            <input class="btn btn-secondary w-25" type="reset" value="Limpiar campos">
+            <input class="btn btn-secondary w-25" type="submit" id="enviar" value="Enviar">
         </div>
     </form>
 </section>

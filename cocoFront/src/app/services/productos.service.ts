@@ -9,11 +9,11 @@ import { last, lastValueFrom } from 'rxjs';
 })
 export class ProductosService {
   private baseUrl: string = 'http://localhost:3000/api/productos'
-  private httpOptions = {
-    headers: new HttpHeaders({
-      authorization: localStorage.getItem('user-token')!
-    })
-  }
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     authorization: localStorage.getItem('user-token')!
+  //   })
+  // }
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -64,4 +64,15 @@ export class ProductosService {
     }
     return lastValueFrom(this.httpClient.post<any>(this.baseUrl + '/nuevo', formValue, httpOptions))
   }
+
+  eliminarProd(id: number) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+
+    }
+    return lastValueFrom(this.httpClient.delete<any>(this.baseUrl + /eliminar/ + id, httpOptions))
+  }
+
 }

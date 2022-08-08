@@ -5,14 +5,14 @@
                 aria-controls="offcanvasNavbar">
                 <span><i class="fa-solid fa-filter"></i></span>
             </button>
-            <div class="navbar-brand ps-3">Busqueda avanzada</div>
+            <div class="navbar-brand ps-3">Búsqueda avanzada</div>
         </div>
         <input type="submit" class="btn btn-secondary mb-2" value="Reiniciar Busqueda" (click)="reset()">
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Busqueda avanzada</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Búsqueda avanzada</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -40,16 +40,16 @@
                             max="99999" placeholder="99999" required>
                     </div>
                     <hr>
-                    <label class="form-label" for="">Categorias</label>
+                    <label class="form-label" for="">Categorías</label>
                     <select name="categoria" ngModel class="form-select" required>
-                        <option selected>Selecciona una categoria</option>
+                        <option value="" selected>Selecciona una categoría</option>
                         <option value="arte">Arte</option>
-                        <option value="artesania">Artesania</option>
+                        <option value="artesania">Artesanía</option>
                         <option value="cine">Cine</option>
                         <option value="deportes">Deportes</option>
                         <option value="figuras">Figuras</option>
                         <option value="historia">Historia</option>
-                        <option value="musica">Musica</option>
+                        <option value="musica">Música</option>
                         <option value="videojuegos">Videojuegos</option>
                         <option value="varios">Varios</option>
                     </select>
@@ -69,23 +69,35 @@
         </div>
     </div>
 </nav>
+<div id="hero">
+    <div class="pos-rel">
+        <div class="hero_text block-text bg-dark rounded-pill bg-opacity-50 text-white p-3">
+            <h1>¡Marketplace!</h1>
+            <h2>¡Descubre aquí los productos en venta
+                <br>
+                subidos por nuestros usuarios!
+            </h2>
+        </div>
+    </div>
+</div>
 <section id="productos_view">
+
     <div class="container">
-        <h2 class="text-center">Mercado</h2>
+
         <div id="productos" class="row g-4">
             <article *ngFor="let producto of productosMercado" class="col-12 col-md-6 col-lg-4">
                 <div class="card rounded-3">
                     <div class="img card-img-top" [ngStyle]="{'background-image': 'url(' + producto.imagen + ')'}">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{producto.nombre}}</h5>
+                        <h5 class="card-title"><strong>{{producto.nombre}}</strong></h5>
                         <div id="usuario_info" class="p-1">
-                            <p class="mb-2">{{producto.username}}</p>
-                            <p>Rating: {{producto.rating}}</p>
+                            <p class="mb-2"><strong>{{producto.username}}</strong></p>
+                            <p><strong>Rating:</strong> {{producto.rating}}</p>
                             <div id="trusted_icon" *ngIf="producto.trusted!==0"><i class="fa-solid fa-star"></i></div>
                         </div>
-                        <p class="mt-2 mb-2">Precio: {{producto.precio}}€</p>
-                        <p>Estado: {{producto.estado | titlecase}}</p>
+                        <p class="mt-2 mb-2"><strong>Precio:</strong> {{producto.precio}}€</p>
+                        <p><strong>Estado:</strong> {{producto.estado | titlecase}}</p>
                         <div class="">
 
                         </div>

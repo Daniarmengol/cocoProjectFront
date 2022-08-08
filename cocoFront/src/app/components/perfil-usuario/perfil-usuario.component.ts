@@ -47,11 +47,17 @@ export class PerfilUsuarioComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private activatedRoute: ActivatedRoute,
-    private mapsService: MapsService
+    private mapsService: MapsService,
+    private productosService: ProductosService
   ) { }
 
 
   ngOnInit(): void {
+    // this.activatedRoute.queryParams.subscribe((params) => {
+    //   // console.log(params);
+    //   this.profileTab = params['profileTab']
+    // })
+
     this.activatedRoute.params.subscribe(async (params: any) => {
       this.user = await this.usersService.getById(params.userId);
       // this.userAgeCalc(this.user.fecha_nacimiento)
@@ -79,6 +85,11 @@ export class PerfilUsuarioComponent implements OnInit {
 
   cargarArticle(article: string): void {
     this.profileTab = article;
+  }
+
+  async eliminarProd(id: number) {
+    await this.productosService.eliminarProd(id)
+    this.misProductos = await this.usersService.getProductosByUser(this.user.id)
   }
 
   // userAgeCalc(userAge: string): number {

@@ -88,3 +88,39 @@ article:hover #prodBtn{
     transition: 0.3s;
 }
 
+#hero {
+     background: url(https://b282c5de4f50ed30d5ce-25e9f6b52714e6c3d4dbb7e330152014.ssl.cf3.rackcdn.com//uploaded_thumb_medium/f0444fbf69583fd64dda63349911774a/ofertas.jpeg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+     height: 100vh;
+ }
+
+ .hero_text {
+    margin-top: 250px;
+    font-weight: 700;
+ }
+
+ .banner-top {
+     padding-top: 30px;
+ }
+
+ .container {
+     display: block;
+ }
+
+ .pos-rel {
+     color: var(--colorSecundario);
+     padding: 20px;
+     border-radius: 5px;
+     text-align: center;
+ }
+
+ .block-imagen {
+     background-image: url(https://www.madridiario.es/fotos/1/137426_macchinine_tienda_coleccionismo_miniaturas_coches23_kr_thumb_722.jpg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-size: cover;
+     width: 100%;
+     height: 400px;
+ }
