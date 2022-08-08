@@ -175,7 +175,7 @@
 
 
                             <div class="modal fade" id="nuevoProductoModal" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-xl modal-dialog-centered">
                                     <div class="modal-content">
@@ -185,10 +185,6 @@
                                         </div>
                                         <div class="modal-body">
                                             <app-nuevo-producto></app-nuevo-producto>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cerrar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -205,12 +201,19 @@
                                         <div class="card-body">
                                             <h5 class="card-title"><strong>{{producto.nombre}}</strong></h5>
                                             <ul class="prod_caracteristicas mt-3 mb-3">
-                                                <li *ngIf="producto.precio !== null"><strong>Precio:</strong>
-                                                    {{producto.precio}}€</li>
-                                                <li *ngIf="producto.marca !== null"><strong>Marca:</strong>
-                                                    {{producto.marca}}</li>
+
+                                                <li *ngIf="producto.precio !== null">
+                                                    <strong>Precio:</strong>
+                                                    {{producto.precio}} €
+                                                </li>
+
+                                                <li *ngIf="producto.marca !== '' && producto.marca !== null">
+                                                    <strong>Marca:</strong>
+                                                    {{producto.marca | titlecase}}
+                                                </li>
+
                                                 <li *ngIf="producto.categoria !== null"><strong>Categoria:</strong>
-                                                    {{producto.categoria}}</li>
+                                                    {{producto.categoria | titlecase}}</li>
                                                 <li *ngIf="producto.estado !== null"><strong>Estado:</strong>
                                                     {{producto.estado | titlecase}}</li>
                                             </ul>

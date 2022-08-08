@@ -89,6 +89,7 @@ export class PerfilUsuarioComponent implements OnInit {
 
   async eliminarProd(id: number) {
     await this.productosService.eliminarProd(id)
+    this.misProductos = await this.usersService.getProductosByUser(this.user.id)
   }
 
   // userAgeCalc(userAge: string): number {

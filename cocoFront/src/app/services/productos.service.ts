@@ -9,11 +9,11 @@ import { last, lastValueFrom } from 'rxjs';
 })
 export class ProductosService {
   private baseUrl: string = 'http://localhost:3000/api/productos'
-  private httpOptions = {
-    headers: new HttpHeaders({
-      authorization: localStorage.getItem('user-token')!
-    })
-  }
+  // private httpOptions = {
+  //   headers: new HttpHeaders({
+  //     authorization: localStorage.getItem('user-token')!
+  //   })
+  // }
   constructor(
     private httpClient: HttpClient
   ) { }
