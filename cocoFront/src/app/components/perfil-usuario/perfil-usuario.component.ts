@@ -10,6 +10,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 import { UsersService } from 'src/app/services/users.service';
 import * as dayjs from 'dayjs';
 import { Producto } from 'src/app/interfaces/producto.interface';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -30,11 +31,12 @@ export class PerfilUsuarioComponent implements OnInit {
   checkUser: User | any;
   botonesOn: boolean = false;
 
-
+  // USER
   user: Observable<User[]> | any;
   profileTab: string = 'informacion';
   userEdad: any;
   userAntiguedad: any;
+  userBioForm: FormGroup | any;
 
   // MAPA
   lat: number = 40;
@@ -49,7 +51,18 @@ export class PerfilUsuarioComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private mapsService: MapsService,
     private productosService: ProductosService
-  ) { }
+  ) {
+    // this.userBioForm = new FormGroup({
+    //   nombre: new FormControl([
+    //     Validators.required
+    //   ]),
+    //   apellidos: new FormControl([
+    //     Validators.required
+    //   ]),
+    //   discord: new FormControl([]),
+    //   avatar: new FormControl([]),
+    // })
+  }
 
 
   ngOnInit(): void {
@@ -77,8 +90,15 @@ export class PerfilUsuarioComponent implements OnInit {
         this.zoom = 16;
       };
 
-
+      // this.userBioForm.patchValue({
+      //   nombre: this.user.nombre,
+      //   apellidos: this.user.apellidos,
+      //   discord: this.user.discord,
+      //   avatar: this.user.avatar
+      // })
     });
+
+
 
   };
 
@@ -92,8 +112,16 @@ export class PerfilUsuarioComponent implements OnInit {
     this.misProductos = await this.usersService.getProductosByUser(this.user.id)
   }
 
-  // userAgeCalc(userAge: string): number {
-  //   return (dayjs().diff(dayjs(userAge), 'years'));
+  // async getDataForm(userBioForm: any) {
+  //   const myUser = await this.usersService.getUserByToken()
+  //   try {
+  //     console.log(myUser);
+  //     const response: any = await this.usersService.editInfo(myUser.id, userBioForm)
+  //     console.log(response);
+  //   } catch (err) {
+  //     console.log(err);
+
+  //   }
   // }
 
 }

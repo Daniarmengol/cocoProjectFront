@@ -12,6 +12,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import { ColeccionViewComponent } from './components/coleccion-view/coleccion-view.component';
 import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
 import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
+import { UserEditBioFormComponent } from './components/user-edit-bio-form/user-edit-bio-form.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'nuevo-producto', component: NuevoProductoComponent }
     ]
   },
+  { path: 'perfil/:userId/edit/bio', component: UserEditBioFormComponent, canActivate: [LoginGuard] },
   { path: '**', component: C404Component }
 
 ];
