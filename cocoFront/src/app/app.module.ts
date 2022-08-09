@@ -27,7 +27,7 @@ import { ColeccionViewComponent } from './components/coleccion-view/coleccion-vi
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
 import { UserCollectionCardComponent } from './components/user-collection-card/user-collection-card.component';
 import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
-import { UserFormAvatarComponent } from './components/user-form-avatar/user-form-avatar.component';
+import { UserEditBioFormComponent } from './components/user-edit-bio-form/user-edit-bio-form.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { UserFormAvatarComponent } from './components/user-form-avatar/user-form
     UserCollectionCardComponent,
     UserColeccionViewComponent,
     NuevoProductoComponent,
-    UserFormAvatarComponent,
+    UserEditBioFormComponent,
   ],
   imports: [
     BrowserModule,

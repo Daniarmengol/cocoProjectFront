@@ -3,12 +3,18 @@
         <nav style="--bs-breadcrumb-divider:'>'">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+                <li class="breadcrumb-item">></li>
                 <li class="breadcrumb-item active">Perfil de {{user?.username}}</li>
             </ol>
         </nav>
 
         <div class="user_info">
             <section class="info_box bg-light">
+
+                <div class="text-center">
+                    <h2 class="pt-5 fs-1">Perfil de {{user?.username}}</h2>
+                </div>
+
                 <!-- <div class="perfil_img d-flex flex-column pt-3">
                     <div class="text-center my-2">
                         <h3>{{user?.username}}</h3>
@@ -101,7 +107,7 @@
 
                 <div class="perfil_tabs mt-3">
                     <nav>
-                        <ul class="nav nav-tabs">
+                        <ul class="nav nav-tabs mx-2">
                             <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'informacion'}"
                                 (click)="cargarArticle('informacion')">
                                 Información
@@ -118,10 +124,61 @@
                         </ul>
                     </nav>
 
-                    <div class="content mb-5">
+                    <div class="content mb-5 pb-4">
                         <article *ngIf="profileTab === 'informacion'">
 
-                            <div class="info_bio p-3">
+                            <div *ngIf="botonesOn">
+                                <button class="btn btn-success w-25 mx-5 mt-3" type="button"
+                                    [routerLink]="['/perfil', user?.id, 'edit', 'bio']">
+                                    Editar datos
+                                </button>
+                                <!-- <button class="btn btn-primary w-25 mx-5 mt-3" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseExample">
+                                    Editar info
+                                </button> -->
+
+                                <!-- <div class="collapse" id="collapseExample">
+
+                                    <app-user-edit-bio-form></app-user-edit-bio-form>
+                                    <div class="card card-body bg-light">
+                                        <form class="w-25 my-3 mx-5 py-3 rounded-3" novalidate [formGroup]="userBioForm"
+                                            (ngSubmit)="getDataForm(userBioForm)">
+
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" formControlName="nombre"
+                                                    id="nombre" placeholder="">
+                                                <label for="nombre">Nombre</label>
+                                            </div>
+
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" formControlName="apellidos"
+                                                    id="apellidos" placeholder="">
+                                                <label for="apellidos">Apellidos</label>
+                                            </div>
+
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" formControlName="discord"
+                                                    id="discord" placeholder="">
+                                                <label for="discord">Discord</label>
+                                            </div>
+
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control" formControlName="avatar"
+                                                    id="avatar" placeholder="">
+                                                <label for="avatar">Avatar</label>
+                                            </div>
+
+                                            <input class="btn btn-secondary w-25 my-3" type="submit" id="editar"
+                                                value="Editar">
+                                        </form>
+
+                                    </div>
+                                </div> -->
+
+
+                            </div>
+
+                            <div class="info_bio px-3">
                                 <div class="my-3 ps-3">
                                     <strong>Nombre completo:</strong>
                                     <span>{{user?.nombre}} {{user?.apellidos}}</span>
@@ -156,6 +213,7 @@
 
                                     <div class="mapita">
                                         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                                         </agm-map>
                                     </div>
                                 </div>
@@ -166,10 +224,11 @@
 
                         <article *ngIf="profileTab==='productos'">
                             <!-- nuevo producto modal y button -->
-                            <div class="flex m-4">
-                                <button type="button" *ngIf="botonesOn" class="btn btn-secondary addProducto"
-                                    data-bs-toggle="modal" data-bs-target="#nuevoProductoModal">
-                                    Nuevo Producto
+                            <div class="flex">
+                                <button type="button" *ngIf="botonesOn"
+                                    class="btn btn-success w-25 mx-5 mt-3 addProducto" data-bs-toggle="modal"
+                                    data-bs-target="#nuevoProductoModal">
+                                    Nuevo producto
                                 </button>
                             </div>
 

@@ -103,4 +103,15 @@ export class UsersService {
     return lastValueFrom(this.httpClient.get<User | any>(this.baseUrl + 'mis-productos/' + id, httpOptions))
 
   }
+
+  editInfo(id: number, infoFormValue: any): Promise<User | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.patch<User | any>(this.baseUrl + 'editar/' + id + '/user-info', infoFormValue, httpOptions))
+  }
+
+
 }
