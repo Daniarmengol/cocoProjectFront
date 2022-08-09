@@ -21,41 +21,37 @@
                                 usuario</a>
                         </li>
                     </ul>
-                    <div id="informacion_producto" *ngIf="seccionActual === 'informacion_producto'">
-                        <ul id="prod_info" class="mt-4">
-                            <li>Nombre: {{miProducto.nombre}}</li>
-                            <li>Precio: {{miProducto.precio}} €</li>
-                            <li>Categoria: {{miProducto.categoria}}</li>
-                            <li>Marca: {{miProducto.marca}}</li>
-                            <li>Estado: {{miProducto.estado}}</li>
-                            <li>Fecha subida: {{miProducto.fecha_subida|date}}</li>
-                        </ul>
-                        <h4 class="mt-3">Descripcion</h4>
-                        <p class="mt-4 mb-5">
-                            {{miProducto.descripcion}}
-                        </p>
-                        <!-- <div class="botonera d-flex justify-content-around">
-                            <button [routerLink]="['/productos']" class="btn btn-success carrito">Volver</button>
-                            <button class="btn btn-success carrito">Añadir al carrito</button>
-
-                        </div> -->
-
-                    </div>
-                    <div id="user_prod" class="mt-5 mb-5 d-flex" *ngIf="seccionActual === 'usuario_producto'">
-                        <div id="user_avatar" [ngStyle]="{'background-image': 'url(' + miProducto.avatar + ')'}"
-                            class="m-4">
-                            <i *ngIf="miProducto.trusted!==0" id="trusted_icon" class="fa-solid fa-star"></i>
+                    <div class="marco_info rounded-bottom">
+                        <div id="informacion_producto" *ngIf="seccionActual === 'informacion_producto'">
+                            <ul id="prod_info">
+                                <li>Nombre: {{miProducto.nombre}}</li>
+                                <li>Precio: {{miProducto.precio}} €</li>
+                                <li>Categoria: {{miProducto.categoria}}</li>
+                                <li>Marca: {{miProducto.marca}}</li>
+                                <li>Estado: {{miProducto.estado}}</li>
+                                <li>Fecha subida: {{miProducto.fecha_subida|date}}</li>
+                            </ul>
+                            <h4 class="mt-4">Descripcion</h4>
+                            <p class="mt-3">
+                                {{miProducto.descripcion}}
+                            </p>
                         </div>
-                        <ul id="user_info" class="d-flex justify-content-center align-content-center flex-column">
-                            <li>{{miProducto.username}}</li>
-                            <li>Rating: {{miProducto.rating}}</li>
-                            <li>Miembro desde: {{miProducto.fecha_registro | date}}</li>
-                        </ul>
-
+                        <div id="user_prod" class="d-flex" *ngIf="seccionActual === 'usuario_producto'">
+                            <div [routerLink]="['/perfil', miProducto.userId]" id="user_avatar"
+                                [ngStyle]="{'background-image': 'url(' + miProducto.avatar + ')'}" class="m-4">
+                                <i *ngIf="miProducto.trusted!==0" id="trusted_icon" class="fa-solid fa-star"></i>
+                            </div>
+                            <ul id="user_info" class="d-flex justify-content-center align-content-center flex-column">
+                                <li [routerLink]="['/perfil', miProducto.userId]">{{miProducto.username}}</li>
+                                <li>Discord: {{miProducto.discord}}</li>
+                                <li>Rating: {{miProducto.rating}}</li>
+                                <li>Miembro desde: {{miProducto.fecha_registro | date}}</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="botonera">
-                    <button [routerLink]="['/productos']" class="btn btn-success carrito">Volver</button>
+                    <div class="botonera">
+                        <button [routerLink]="['/productos']" class="btn btn-success carrito">Marketplace</button>
+                    </div>
                 </div>
             </div>
         </article>
