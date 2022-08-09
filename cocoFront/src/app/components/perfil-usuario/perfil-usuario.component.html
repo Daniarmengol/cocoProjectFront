@@ -107,7 +107,7 @@
 
                 <div class="perfil_tabs mt-3">
                     <nav>
-                        <ul class="nav nav-tabs">
+                        <ul class="nav nav-tabs mx-2">
                             <li class="nav-item nav-link" [ngClass]="{'active': profileTab === 'informacion'}"
                                 (click)="cargarArticle('informacion')">
                                 Información
@@ -124,7 +124,7 @@
                         </ul>
                     </nav>
 
-                    <div class="content mb-5">
+                    <div class="content mb-5 pb-4">
                         <article *ngIf="profileTab === 'informacion'">
 
                             <div *ngIf="botonesOn">

@@ -36,7 +36,7 @@ export class PerfilUsuarioComponent implements OnInit {
   profileTab: string = 'informacion';
   userEdad: any;
   userAntiguedad: any;
-  userBioForm: FormGroup | any;
+  // userBioForm: FormGroup | any;
 
   // MAPA
   lat: number = 40;
