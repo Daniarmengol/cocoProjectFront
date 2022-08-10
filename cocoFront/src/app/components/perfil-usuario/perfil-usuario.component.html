@@ -280,6 +280,7 @@
                                             <p>{{producto.descripcion}}</p>
                                             <div class="botonera mt-3 d-flex flex-column justify-content-around"
                                                 *ngIf="botonesOn">
+
                                                 <button type="button" class="btn btn-secondary mb-2" id="editBtn"
                                                     data-bs-toggle="modal" data-bs-target="#editarProductoModal">
                                                     Editar
@@ -300,7 +301,8 @@
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <app-nuevo-producto></app-nuevo-producto>
+                                                            <app-nuevo-producto [product]="producto">
+                                                            </app-nuevo-producto>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

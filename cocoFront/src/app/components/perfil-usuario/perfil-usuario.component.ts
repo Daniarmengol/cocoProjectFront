@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
@@ -21,6 +21,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class PerfilUsuarioComponent implements OnInit {
 
   @ViewChild("placesRef") placesRef: GooglePlaceDirective | any;
+  @ViewChild('MyModal') mymodal: ElementRef = new ElementRef(document.querySelector('#myModal'));
   options: any = {
     types: [],
     componentRestrictions: { country: 'ES' }
@@ -101,6 +102,11 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
   };
+  ngAfterViewInit() {
+    this.mymodal.nativeElement.onDismiss.subscribe(() => {
+      // Aqui crear una funcion callback que entre por Input al componente app-nuevo-producto y borre la información del formulario
+    });
+  }
 
 
   cargarArticle(article: string): void {
@@ -111,6 +117,8 @@ export class PerfilUsuarioComponent implements OnInit {
     await this.productosService.eliminarProd(id)
     this.misProductos = await this.usersService.getProductosByUser(this.user.id)
   }
+
+
 
   // async getDataForm(userBioForm: any) {
   //   const myUser = await this.usersService.getUserByToken()

@@ -52,7 +52,24 @@
 
         <div class="d-flex justify-content-around mt-5">
             <input class="btn btn-secondary w-25" type="reset" value="Limpiar campos">
+            <button class="btn btn-secondary w-25" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseColeccion" aria-expanded="false" aria-controls="collapseColeccion">
+                añadir a coleccion
+            </button>
             <input class="btn btn-secondary w-25" type="submit" id="enviar" value="Enviar">
+        </div>
+        <div class="collapse" id="collapseColeccion">
+            <div class="card card-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        The current link item
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+                    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+                    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+
+                </div>
+            </div>
         </div>
     </form>
 </section>
