@@ -44,6 +44,10 @@ h2{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
+.nav-item{
+    cursor: pointer;
+}
+
 #user_avatar{
     width: 80px;
     height: 80px;
@@ -74,6 +78,7 @@ h2{
 
 #user_info :first-child{
     cursor: pointer;
+    width: fit-content;
 }
 
 #user_info :first-child:hover{

@@ -1,4 +1,4 @@
-<div id="hero" class="">
+<div id="hero">
     <div class="container">
         <section class="hero row">
             <div class="hero_left col-12 col-lg-5">
@@ -22,9 +22,9 @@
                 <div class="hero_right_card">
                     <article *ngFor="let user of userShowcase">
                         <div class="card shadow">
-                            <div role="button" [routerLink]="['/perfil', user.id]">
+                            <div id="hero_card" role="button" [routerLink]="['/perfil', user.id]">
                                 <figure [ngStyle]="{'background-image': 'url(' + user.avatar + ')'}"
-                                    class="card_collection_img rounded-top">
+                                    class="card_collection_img">
                                 </figure>
                                 <div class="p-3 user_info">
                                     <div class="user_info_left">

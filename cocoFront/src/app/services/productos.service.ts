@@ -72,7 +72,16 @@ export class ProductosService {
       })
 
     }
-    return lastValueFrom(this.httpClient.delete<any>(this.baseUrl + /eliminar/ + id, httpOptions))
+    return lastValueFrom(this.httpClient.delete<any>(this.baseUrl + '/eliminar/' + id, httpOptions))
+  }
+
+  editarProducto(id: number, editFormValue: any): Promise<Producto | any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.patch<any>(this.baseUrl + '/editar/' + id, editFormValue, httpOptions))
   }
 
 }
