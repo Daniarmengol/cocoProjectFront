@@ -3,8 +3,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 850px;
+    height: 950px;
 }
+
 
 .btn-outline-success {
     color: var(--colorPrimario);
@@ -96,7 +97,7 @@ h4 {
 
 .hero_right_card article .card div .card_collection_img {
     width: 100%;
-    height: 170px;
+    height: 250px;
     border: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -190,11 +191,11 @@ h4 {
 @media(min-width: 992px) {
 
     #hero {
-        height: 800px;
+        height: 900px;
     }
 
     .hero_right_card article .card div .card_collection_img {
-        height: 260px;
+        height: 350px;
     }
 
     .hero_left_text {
