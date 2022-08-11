@@ -65,18 +65,18 @@ export class UserEditBioFormComponent implements OnInit {
           icon: 'error',
           title: '¡Uy!',
           text: 'Ha habido un problema, vuelve a intentarlo.',
-          timer: 3000
+          timer: 2500
         })
       } else {
         Swal.fire({
           icon: 'success',
-          title: 'Usuario editado!',
-          text: 'Usuaro editado correctamente!',
-          timer: 3000
+          title: '¡Usuario editado!',
+          text: '¡Usuario editado correctamente!',
+          timer: 2500
         })
         setTimeout(() => {
           this.router.navigate(['/perfil', myUser.id])
-        }, 4000);
+        }, 3000);
       }
     } catch (err) {
       console.log(err);

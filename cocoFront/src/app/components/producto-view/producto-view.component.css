@@ -44,6 +44,10 @@ h2{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
+.nav-item{
+    cursor: pointer;
+}
+
 #user_avatar{
     width: 80px;
     height: 80px;

@@ -13,6 +13,7 @@ import { ColeccionViewComponent } from './components/coleccion-view/coleccion-vi
 import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
 import { NuevoProductoComponent } from './components/nuevo-producto/nuevo-producto.component';
 import { UserEditBioFormComponent } from './components/user-edit-bio-form/user-edit-bio-form.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -30,6 +31,7 @@ const routes: Routes = [
     ]
   },
   { path: 'perfil/:userId/edit/bio', component: UserEditBioFormComponent, canActivate: [LoginGuard] },
+  { path: 'perfil/:userId/edit/producto/:productoId', component: EditarProductoComponent, canActivate: [LoginGuard] },
   { path: '**', component: C404Component }
 
 ];

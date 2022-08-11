@@ -179,7 +179,7 @@
                             </div>
 
                             <div class="info_bio px-3">
-                                <div class="my-3 ps-3">
+                                <div class="mb-3 ps-3 pt-3">
                                     <strong>Nombre completo:</strong>
                                     <span>{{user?.nombre}} {{user?.apellidos}}</span>
                                 </div>
@@ -279,8 +279,9 @@
                                             <p>{{producto.descripcion}}</p>
                                             <div class="botonera mt-3 d-flex flex-column justify-content-around"
                                                 *ngIf="botonesOn">
-                                                <button type="button" class="btn btn-secondary mb-2" id="editBtn"
-                                                    data-bs-toggle="modal" data-bs-target="#editarProductoModal">
+                                                <button
+                                                    [routerLink]="['/perfil', user?.id, 'edit', 'producto', producto?.id ]"
+                                                    type="button" class="btn btn-secondary mb-2" id="editBtn">
                                                     Editar
                                                 </button>
                                                 <button type="button" (click)="eliminarProd(producto.id)"
@@ -289,7 +290,7 @@
                                                 </button>
                                             </div>
                                             <!-- editar producto modal-->
-                                            <div class="modal fade" id="editarProductoModal" data-bs-backdrop="static"
+                                            <!-- <div class="modal fade" id="editarProductoModal" data-bs-backdrop="static"
                                                 data-bs-keyboard="false" tabindex="-1"
                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -307,7 +308,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
