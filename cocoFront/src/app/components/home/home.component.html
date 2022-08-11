@@ -22,9 +22,9 @@
                 <div class="hero_right_card">
                     <article *ngFor="let user of userShowcase">
                         <div class="card shadow">
-                            <div role="button" [routerLink]="['/login']">
-                                <figure class="card_collection_img">
-                                    <img [src]="user.avatar" class="card-img-top">
+                            <div role="button" [routerLink]="['/perfil', user.id]">
+                                <figure [ngStyle]="{'background-image': 'url(' + user.avatar + ')'}"
+                                    class="card_collection_img rounded-top">
                                 </figure>
                                 <div class="p-3 user_info">
                                     <div class="user_info_left">

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
@@ -15,13 +16,13 @@ export class NuevoProductoComponent implements OnInit {
 
   constructor(
     private productosService: ProductosService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private router: Router
   ) {
-
     this.productoForm = new FormGroup({
       usuario_id: new FormControl(),
       nombre: new FormControl('', []),
-      precio: new FormControl('', []),
+      precio: new FormControl(0, []),
       categoria: new FormControl('', [
         Validators.required
       ]),
@@ -49,6 +50,7 @@ export class NuevoProductoComponent implements OnInit {
   }
 
   async getDataForm(productoForm: any) {
+    const myUser = await this.usersService.getUserByToken()
     try {
       const response: any = await this.productosService.addProducto(this.productoForm.value)
       console.log(response);
@@ -68,7 +70,6 @@ export class NuevoProductoComponent implements OnInit {
           text: 'Producto creado satisfactoriamente.',
           timer: 5000
         })
-
       }
 
     } catch (error) {

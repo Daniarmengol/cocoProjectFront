@@ -178,6 +178,12 @@ h4 {
     font-weight: 700;
 }
 
+.card_collection_img{
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
 @media(min-width: 992px) {
 
     #hero {

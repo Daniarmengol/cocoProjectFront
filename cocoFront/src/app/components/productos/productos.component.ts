@@ -20,7 +20,9 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<Producto[] | void> {
-    this.productosMercado = await this.productosService.getUserByProducto();
+
+    this.productosMercado = await this.productosService.getProductosVenta();
+
   }
 
   async search(busqueda: any) {
@@ -28,7 +30,7 @@ export class ProductosComponent implements OnInit {
   }
 
   async reset() {
-    this.productosMercado = await this.productosService.getUserByProducto()
+    this.productosMercado = await this.productosService.getProductosVenta()
   }
 
 }

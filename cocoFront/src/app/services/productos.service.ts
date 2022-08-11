@@ -27,7 +27,7 @@ export class ProductosService {
     return lastValueFrom(this.httpClient.get<Producto[]>(this.baseUrl, httpOptions))
   }
 
-  getUserByProducto(): Promise<Producto[] | any> {
+  getProductosVenta(): Promise<Producto[] | any> {
     const httpOptions = {
       headers: new HttpHeaders({
         authorization: localStorage.getItem('user-token')!

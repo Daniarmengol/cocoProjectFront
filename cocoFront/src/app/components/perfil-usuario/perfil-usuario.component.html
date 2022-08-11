@@ -128,7 +128,7 @@
                         <article *ngIf="profileTab === 'informacion'">
 
                             <div *ngIf="botonesOn">
-                                <button class="btn btn-success w-25 mx-5 mt-3" type="button"
+                                <button class="btn btn-success ms-4 mt-4" type="button"
                                     [routerLink]="['/perfil', user?.id, 'edit', 'bio']">
                                     Editar datos
                                 </button>
@@ -225,9 +225,8 @@
                         <article *ngIf="profileTab==='productos'">
                             <!-- nuevo producto modal y button -->
                             <div class="flex">
-                                <button type="button" *ngIf="botonesOn"
-                                    class="btn btn-success w-25 mx-5 mt-3 addProducto" data-bs-toggle="modal"
-                                    data-bs-target="#nuevoProductoModal">
+                                <button type="button" *ngIf="botonesOn" class="btn btn-success ms-4 mt-4 addProducto"
+                                    data-bs-toggle="modal" data-bs-target="#nuevoProductoModal">
                                     Nuevo producto
                                 </button>
                             </div>
