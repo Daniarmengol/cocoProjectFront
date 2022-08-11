@@ -78,6 +78,7 @@ h2{
 
 #user_info :first-child{
     cursor: pointer;
+    width: fit-content;
 }
 
 #user_info :first-child:hover{
