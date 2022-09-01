@@ -93,16 +93,23 @@ export class RegistroUsuarioComponent implements OnInit {
       console.log(response);
       const msg = (response.success) ? response.success : response.error;
       // alert(msg); // sweet alerts usuario duplicado
-      Swal.fire({
-        title: 'Ha habido un error!',
-        icon: 'error',
-        text: msg,
-        timer: 3000
-      })
+
       if (response.success) {
+        Swal.fire({
+          title: '¡Usuario registrado!',
+          icon: 'success',
+          text: 'Usuario registrado correctamente.',
+          timer: 2500
+        })
         this.router.navigate(['/login'])
       }
     } catch (error) {
+      Swal.fire({
+        title: 'Ha habido un error.',
+        icon: 'error',
+        text: 'Ha habido un problema, vuelve a intentarlo.',
+        timer: 2500
+      })
       console.log(error)
     }
 

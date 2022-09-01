@@ -1,9 +1,8 @@
-<div class="card card-body  fondito my-5 pt-5 border-0">
+<div class="card card-body fondito my-5 pt-5 border-0">
     <div class="text-center">
         <h2>Editar datos del producto</h2>
     </div>
     <div class="d-flex justify-content-evenly flex-row">
-
         <form class="w-25 my-3 mx-auto py-3 rounded-3" novalidate [formGroup]="editForm"
             (ngSubmit)="getDataForm(editForm)">
 
@@ -60,6 +59,7 @@
                 <input class="btn btn-success w-25 my-3" type="submit" id="editar" value="Editar">
             </div>
         </form>
+
 
         <div class="imagencilla mx-auto shadow">
             <img [src]="imgProd">
