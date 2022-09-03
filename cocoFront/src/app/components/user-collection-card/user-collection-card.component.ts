@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCollectionCardComponent implements OnInit {
 
+  imagesArr: string[] = []
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

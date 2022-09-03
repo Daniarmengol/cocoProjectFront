@@ -11,6 +11,8 @@ import { UsersService } from 'src/app/services/users.service';
 import * as dayjs from 'dayjs';
 import { Producto } from 'src/app/interfaces/producto.interface';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Coleccion } from 'src/app/interfaces/coleccion.interface';
+import { ColeccionesService } from 'src/app/services/colecciones.service';
 
 
 @Component({
@@ -32,6 +34,9 @@ export class PerfilUsuarioComponent implements OnInit {
   checkUser: User | any;
   botonesOn: boolean = false;
 
+  /* MIS COLECCIONES */
+  misColecciones: Coleccion[] | any = [];
+
   // USER
   user: Observable<User[]> | any;
   profileTab: string = 'informacion';
@@ -51,7 +56,8 @@ export class PerfilUsuarioComponent implements OnInit {
     private usersService: UsersService,
     private activatedRoute: ActivatedRoute,
     private mapsService: MapsService,
-    private productosService: ProductosService
+    private productosService: ProductosService,
+    private coleccionesService: ColeccionesService
   ) {
     // this.userBioForm = new FormGroup({
     //   nombre: new FormControl([
@@ -83,6 +89,9 @@ export class PerfilUsuarioComponent implements OnInit {
       (this.user.id === this.checkUser.id) ? this.botonesOn = true : this.botonesOn = false;
       this.misProductos = await this.usersService.getProductosByUser(params.userId)
       console.log(this.misProductos)
+
+      this.misColecciones = await this.coleccionesService.getCollectionByUserId(params.userId)
+
       if (this.userLocation.results) {
         // console.log(this.userLocation.results[0].geometry.location.lat);
         // console.log(this.userLocation.results[0].geometry.location.lng);
@@ -102,11 +111,11 @@ export class PerfilUsuarioComponent implements OnInit {
 
 
   };
-  ngAfterViewInit() {
+  /* ngAfterViewInit() {
     this.mymodal.nativeElement.onDismiss.subscribe(() => {
       // Aqui crear una funcion callback que entre por Input al componente app-nuevo-producto y borre la información del formulario
     });
-  }
+  } */
 
 
   cargarArticle(article: string): void {

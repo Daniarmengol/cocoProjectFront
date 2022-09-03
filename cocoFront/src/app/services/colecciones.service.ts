@@ -49,18 +49,16 @@ export class ColeccionesService {
 
   }
 
+  getCollectionByUserId(id: number): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
 
+    return lastValueFrom(this.httpClient.get<Coleccion | any>(this.baseUrl + '/usuario/' + id, httpOptions))
 
-  /*  getCollectionByUserId(id: number): Promise<any> {
-     const httpOptions = {
-       headers: new HttpHeaders({
-         authorization: localStorage.getItem('user-token')!
-       })
-     };
- 
-     return lastValueFrom(this.httpClient.get<any>())
- 
-   } */
+  }
 
 
 

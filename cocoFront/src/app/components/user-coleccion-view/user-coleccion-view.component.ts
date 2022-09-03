@@ -11,7 +11,7 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class UserColeccionViewComponent implements OnInit {
 
-  productosColeccion: Producto[] = []
+  productosColeccion: any[] = []
   productos: Producto[] = []
 
 
@@ -25,9 +25,6 @@ export class UserColeccionViewComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(async (params: any) => {
       this.productosColeccion = await this._coleccionesServices.getByCodigo(params.codigo)
-      /*  this.productos = this.productosColeccion.map(async () => {
-         await this._productosServices.getById()
-       }) */
 
       console.log(this.productosColeccion)
 
