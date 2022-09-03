@@ -104,6 +104,8 @@ export class UsersService {
 
   }
 
+
+
   editInfo(id: number, infoFormValue: any): Promise<User | any> {
     const httpOptions = {
       headers: new HttpHeaders({

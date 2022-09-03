@@ -58,16 +58,16 @@ export class ColeccionesService {
     return lastValueFrom(this.httpClient.post<Coleccion>(this.baseUrl + '/nuevo', pFormValue, httpOptions))
   }
 
-  /*  getCollectionByUserId(id: number): Promise<any> {
-     const httpOptions = {
-       headers: new HttpHeaders({
-         authorization: localStorage.getItem('user-token')!
-       })
-     };
- 
-     return lastValueFrom(this.httpClient.get<any>())
- 
-   } */
+
+  getCollectionByUserId(id: number): Promise<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    };
+    return lastValueFrom(this.httpClient.get<Coleccion | any>(this.baseUrl + '/usuario/' + id, httpOptions))
+
+  }
 
 
 

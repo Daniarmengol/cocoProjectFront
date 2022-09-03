@@ -25,10 +25,11 @@
                         <div id="informacion_producto" *ngIf="seccionActual === 'informacion_producto'">
                             <ul id="prod_info">
                                 <li>Nombre: {{miProducto.nombre}}</li>
-                                <li>Precio: {{miProducto.precio}} €</li>
-                                <li>Categoria: {{miProducto.categoria}}</li>
-                                <li>Marca: {{miProducto.marca}}</li>
-                                <li>Estado: {{miProducto.estado}}</li>
+                                <li *ngIf="miProducto.precio !== null && miProducto.precio != 0">Precio:
+                                    {{miProducto.precio}} €</li>
+                                <li>Categoria: {{miProducto.categoria | titlecase}}</li>
+                                <li>Marca: {{miProducto.marca | titlecase}}</li>
+                                <li>Estado: {{miProducto.estado | titlecase}}</li>
                                 <li>Fecha subida: {{miProducto.fecha_subida|date}}</li>
                             </ul>
                             <h4 class="mt-4">Descripcion</h4>
