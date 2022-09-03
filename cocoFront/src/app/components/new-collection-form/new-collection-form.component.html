@@ -13,9 +13,9 @@
             </div>
 
             <div class="form-floating my-3">
-                <select id="categoria" class="form-select" aria-label="Default select example"
+                <select id="categoria" class="form-select" aria-label="default select example"
                     formControlName="categoria">
-                    <option [selected]="true" disabled>Selecciona una categoría</option>
+                    <!-- <option [selected]="true" disabled>Selecciona una categoría</option> -->
                     <option value="deportes">Deportes</option>
                     <option value="videojuegos">Videojuegos</option>
                     <option value="musica">Musica</option>
@@ -29,21 +29,27 @@
                 <label for="categoria">Categoria</label>
             </div>
 
-            <div class="my-3 listaProducto">
-                <div *ngFor="let producto of arrayProductos">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" [value]="producto.id"
-                            [attr.data-producto_id]="producto.id" id="flexCheckDefault" formControlName="producto_id"
-                            (click)="pruebadatos($event)">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {{producto.nombre}}
-                        </label>
-                    </div>
-                </div>
-
+            <div class="form-floating my-3">
+                <select aria-label="default select example" id="producto_id" class="form-select"
+                    formControlName="producto_id">
+                    <!-- <option [selected]="true" disabled>Selecciona un producto</option> -->
+                    <option *ngFor="let producto of arrayProductos" [value]="producto.id">
+                        {{producto.nombre}}
+                    </option>
+                </select>
+                <label for="producto_id">Selecciona un producto.</label>
             </div>
 
-            <input class="btn btn-success w-100 my-3" type="submit" id="editar" value="Editar">
+            <div class="form-floating my-3 d-none">
+                <input type="text" id="usuario_id" formControlName="usuario_id">
+            </div>
+
+            <div class="form-floating my-3 d-none">
+                <input type="text" id="codigo" formControlName="codigo">
+            </div>
+
+
+            <input class="btn btn-success w-100 my-3" type="submit" id="editar" value="Crear colección">
         </form>
 
 
