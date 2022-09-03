@@ -1,8 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/services/productos.service';
 import { UsersService } from 'src/app/services/users.service';
+import { Producto } from 'src/app/interfaces/producto.interface';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,6 +15,7 @@ import Swal from 'sweetalert2';
 export class NuevoProductoComponent implements OnInit {
   productoForm: FormGroup | any;
   myId: number = 0;
+  @Input() product: any = {};
 
   constructor(
     private productosService: ProductosService,
@@ -47,6 +50,13 @@ export class NuevoProductoComponent implements OnInit {
     this.productoForm.patchValue({
       usuario_id: myUser.id
     })
+    this.checkProductInfo();
+  }
+
+  async checkProductInfo() {
+    if (this.product !== {}) {
+      this.productoForm.patchValue(this.product);
+    }
   }
 
   async getDataForm(productoForm: any) {
