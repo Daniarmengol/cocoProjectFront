@@ -69,6 +69,15 @@ export class ColeccionesService {
 
   }
 
+  borrar(codigo: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        authorization: localStorage.getItem('user-token')!
+      })
+    }
+    return lastValueFrom(this.httpClient.delete<any>(this.baseUrl + '/eliminar/' + codigo, httpOptions))
+  }
+
 
 
 }
