@@ -29,6 +29,7 @@ import { UserCollectionCardComponent } from './components/user-collection-card/u
 import { UserColeccionViewComponent } from './components/user-coleccion-view/user-coleccion-view.component';
 import { UserEditBioFormComponent } from './components/user-edit-bio-form/user-edit-bio-form.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
+import { NewCollectionFormComponent } from './components/new-collection-form/new-collection-form.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
     NuevoProductoComponent,
     UserEditBioFormComponent,
     EditarProductoComponent,
+    NewCollectionFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,51 @@
+<div class="card card-body  fondito my-5 pt-5 border-0">
+    <div class="text-center">
+        <h2>Nueva colección</h2>
+    </div>
+    <div class="d-flex justify-content-evenly flex-row">
+
+        <form class="w-25 my-3 mx-auto py-3 rounded-3" novalidate [formGroup]="nuevaColeccionForm"
+            (ngSubmit)="getDataForm(nuevaColeccionForm)">
+
+            <div class="form-floating my-3">
+                <input type="text" class="form-control" formControlName="titulo" id="titulo" placeholder="">
+                <label for="titulo">Título</label>
+            </div>
+
+            <div class="form-floating my-3">
+                <select id="categoria" class="form-select" aria-label="Default select example"
+                    formControlName="categoria">
+                    <option [selected]="true" disabled>Selecciona una categoría</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="videojuegos">Videojuegos</option>
+                    <option value="musica">Musica</option>
+                    <option value="figuras">Figuras</option>
+                    <option value="historia">Historia</option>
+                    <option value="arte">Arte</option>
+                    <option value="cine">Cine</option>
+                    <option value="artesania">Artesania</option>
+                    <option value="varios">Varios</option>
+                </select>
+                <label for="categoria">Categoria</label>
+            </div>
+
+            <div class="my-3 listaProducto">
+                <div *ngFor="let producto of arrayProductos">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" [value]="producto.id"
+                            [attr.data-producto_id]="producto.id" id="flexCheckDefault" formControlName="producto_id"
+                            (click)="pruebadatos($event)">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{producto.nombre}}
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <input class="btn btn-success w-100 my-3" type="submit" id="editar" value="Editar">
+        </form>
+
+
+    </div>
+</div>

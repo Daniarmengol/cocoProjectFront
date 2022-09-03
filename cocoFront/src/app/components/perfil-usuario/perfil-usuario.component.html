@@ -297,7 +297,9 @@
                         </article>
 
                         <article *ngIf=" profileTab==='colecciones'">
-
+                            <button type="button" *ngIf="botonesOn" class="btn btn-success ms-4 mt-4 addProducto"
+                                [routerLink]="['/perfil', user?.id, 'nueva-coleccion']">
+                                Nueva Colección</button>
 
                         </article>
 
